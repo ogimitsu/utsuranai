@@ -70,6 +70,8 @@ function aiStream(kind: DocKind, facts: FactPack, target: DeviceFact | null, tem
       { type: "text", text: `# 事実（${facts.today} 時点）\n\n${factPackToText(facts)}`, cache_control: { type: "ephemeral" } },
     ],
     messages: [{ role: "user", content: instruction(kind, facts, target) }],
+    // 文書は読みながら待てることが価値。長考させず、最初の1行を数秒で出す
+    thinking: { type: "between_tools" },
     output_config: { effort: "medium" },
   });
 

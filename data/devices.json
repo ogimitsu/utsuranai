@@ -599,7 +599,9 @@
     "cable_location": "教卓横のケーブルボックス",
     "remote_location": "電子黒板の下の棚",
     "quirks": [],
-    "suggested_quirks": [],
+    "suggested_quirks": [
+      "映らないとき、まず電子黒板の入力切替を確認する。朝の1〜2限に多い（今年度3件中2件）"
+    ],
     "rejected_quirks": [],
     "warranty_until": "2029-03-31",
     "vendor_id": "v-seiryu",

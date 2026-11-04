@@ -57,6 +57,7 @@ export async function proposeQuirks(today: string): Promise<ProposeResult> {
     const d = devices.find((x) => x.id === p.device_id);
     const text = p.quirk.trim();
     if (!d || !text) continue;
+    if (p.confidence === "low") continue; // 根拠の弱い案は画面に積まない（返答には残す）
     if (d.quirks.includes(text) || d.suggested_quirks.includes(text) || d.rejected_quirks.includes(text)) continue;
     d.suggested_quirks.push(text);
     added++;
@@ -91,7 +92,7 @@ async function proposeWithAi(candidates: DeviceFact[], today: string): Promise<Q
 # ルール
 - 根拠は${MIN_RECORDS}件以上の記録。1〜2件で断定しない。記録にないことを推測しない
 - 既知の確認ポイント・未承認の提案・却下済みの提案と同じ内容は出さない
-- quirk は60字以内の1文。「〜のとき〜。まず〜」のように、先生が次に何をすればよいかが分かる形。文末に件数を（今年度N件中M件）と添える
+- quirk は60字以内の1文。「〜のとき〜。まず〜」のように、先生が次に何をすればよいかが分かる形。文末に実際の件数を添える。例：「（今年度6件中5件）」。N や M のような記号を書かない
 - 専門語を避ける。カードの文体（常体）でよい
 - 機器ごとに最大2件、全体で最大8件。confidence は正直に
 - 出すものがなければ proposals を空にする
