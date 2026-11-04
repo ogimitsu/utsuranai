@@ -1,0 +1,1076 @@
+[
+  {
+    "id": "d-pj-m1",
+    "room_id": "r-m1",
+    "kind": "projector",
+    "maker": "ヒカリ電機",
+    "model": "HP-X520",
+    "installed_year": 2021,
+    "inputs": [
+      "HDMI1",
+      "HDMI2",
+      "VGA"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "教卓左の引き出し",
+    "remote_location": "教卓右の引き出し",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "lamp_hours": 8700,
+    "lamp_life_hours": 10000,
+    "warranty_until": "2026-12-31",
+    "vendor_id": "v-hikari",
+    "status": "active"
+  },
+  {
+    "id": "d-spk-m1",
+    "room_id": "r-m1",
+    "kind": "speaker",
+    "maker": "ミナモ音響",
+    "model": "MS-A20",
+    "installed_year": 2022,
+    "inputs": [
+      "AUX"
+    ],
+    "cable_location": "教卓のPCとつながっている",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-dc-m1",
+    "room_id": "r-m1",
+    "kind": "doc_camera",
+    "maker": "トモエ光学",
+    "model": "TD-D30",
+    "installed_year": 2022,
+    "inputs": [
+      "HDMI",
+      "USB"
+    ],
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2027-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-pj-e1",
+    "room_id": "r-e1",
+    "kind": "projector",
+    "maker": "ヒカリ電機",
+    "model": "HP-L300",
+    "installed_year": 2018,
+    "inputs": [
+      "HDMI1",
+      "VGA"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "教卓左の引き出し",
+    "remote_location": "教卓右の引き出し",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "lamp_hours": 4200,
+    "lamp_life_hours": 6000,
+    "warranty_until": "2025-03-31",
+    "vendor_id": "v-hikari",
+    "status": "active"
+  },
+  {
+    "id": "d-spk-e1",
+    "room_id": "r-e1",
+    "kind": "speaker",
+    "maker": "ミナモ音響",
+    "model": "MS-A20",
+    "installed_year": 2022,
+    "inputs": [
+      "AUX"
+    ],
+    "cable_location": "教卓のPCとつながっている",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-dc-e1",
+    "room_id": "r-e1",
+    "kind": "doc_camera",
+    "maker": "トモエ光学",
+    "model": "TD-D30",
+    "installed_year": 2022,
+    "inputs": [
+      "HDMI",
+      "USB"
+    ],
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2027-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-disp-j1",
+    "room_id": "r-j1",
+    "kind": "display",
+    "maker": "セイリュウ映像",
+    "model": "SV-IB86W",
+    "installed_year": 2026,
+    "inputs": [
+      "無線投影",
+      "HDMI1",
+      "HDMI2"
+    ],
+    "default_input": "無線投影",
+    "cable_location": "教卓横のケーブルボックス（HDMIは予備）",
+    "remote_location": "電子黒板の下の棚",
+    "quirks": [
+      "電子黒板は無線投影。右上のWi-Fiマークが消えていたらHDMIでつなぐ"
+    ],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2031-03-31",
+    "vendor_id": "v-seiryu",
+    "status": "active"
+  },
+  {
+    "id": "d-spk-j1",
+    "room_id": "r-j1",
+    "kind": "speaker",
+    "maker": "ミナモ音響",
+    "model": "MS-A20",
+    "installed_year": 2022,
+    "inputs": [
+      "AUX"
+    ],
+    "cable_location": "教卓のPCとつながっている",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-pj-a1",
+    "room_id": "r-a1",
+    "kind": "projector",
+    "maker": "ヒカリ電機",
+    "model": "HP-X520",
+    "installed_year": 2021,
+    "inputs": [
+      "HDMI1",
+      "HDMI2",
+      "VGA"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "教卓左の引き出し",
+    "remote_location": "教卓右の引き出し",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "lamp_hours": 2400,
+    "lamp_life_hours": 10000,
+    "warranty_until": "2028-03-31",
+    "vendor_id": "v-hikari",
+    "status": "active"
+  },
+  {
+    "id": "d-disp-m2",
+    "room_id": "r-m2",
+    "kind": "display",
+    "maker": "セイリュウ映像",
+    "model": "SV-IB75T",
+    "installed_year": 2022,
+    "inputs": [
+      "HDMI1",
+      "HDMI2"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "教卓横のケーブルボックス",
+    "remote_location": "電子黒板の下の棚",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-seiryu",
+    "status": "active"
+  },
+  {
+    "id": "d-spk-m2",
+    "room_id": "r-m2",
+    "kind": "speaker",
+    "maker": "ミナモ音響",
+    "model": "MS-A20",
+    "installed_year": 2022,
+    "inputs": [
+      "AUX"
+    ],
+    "cable_location": "教卓のPCとつながっている",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-pj-e2",
+    "room_id": "r-e2",
+    "kind": "projector",
+    "maker": "ヒカリ電機",
+    "model": "HP-L300",
+    "installed_year": 2018,
+    "inputs": [
+      "HDMI1",
+      "VGA"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "教卓左の引き出し",
+    "remote_location": "教卓右の引き出し",
+    "quirks": [
+      "ケーブルは10月に交換済み。教卓側のHDMI端子はまっすぐ抜き差しし、ぐらつくならICT担当へ"
+    ],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "lamp_hours": 5250,
+    "lamp_life_hours": 6000,
+    "vendor_id": "v-hikari",
+    "status": "active"
+  },
+  {
+    "id": "d-spk-e2",
+    "room_id": "r-e2",
+    "kind": "speaker",
+    "maker": "ミナモ音響",
+    "model": "MS-A20",
+    "installed_year": 2022,
+    "inputs": [
+      "AUX"
+    ],
+    "cable_location": "教卓のPCとつながっている",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-disp-j2",
+    "room_id": "r-j2",
+    "kind": "display",
+    "maker": "セイリュウ映像",
+    "model": "SV-IB86W",
+    "installed_year": 2026,
+    "inputs": [
+      "無線投影",
+      "HDMI1",
+      "HDMI2"
+    ],
+    "default_input": "無線投影",
+    "cable_location": "教卓横のケーブルボックス（HDMIは予備）",
+    "remote_location": "電子黒板の下の棚",
+    "quirks": [
+      "電子黒板は無線投影。右上のWi-Fiマークが消えていたらHDMIでつなぐ"
+    ],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2031-03-31",
+    "vendor_id": "v-seiryu",
+    "status": "active"
+  },
+  {
+    "id": "d-spk-j2",
+    "room_id": "r-j2",
+    "kind": "speaker",
+    "maker": "ミナモ音響",
+    "model": "MS-A20",
+    "installed_year": 2022,
+    "inputs": [
+      "AUX"
+    ],
+    "cable_location": "教卓のPCとつながっている",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-disp-a2",
+    "room_id": "r-a2",
+    "kind": "display",
+    "maker": "セイリュウ映像",
+    "model": "SV-IB75T",
+    "installed_year": 2022,
+    "inputs": [
+      "HDMI1",
+      "HDMI2"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "教卓横のケーブルボックス",
+    "remote_location": "電子黒板の下の棚",
+    "quirks": [],
+    "suggested_quirks": [
+      "午後の授業で無線投影が切れやすい（要確認）"
+    ],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-seiryu",
+    "status": "active"
+  },
+  {
+    "id": "d-spk-a2",
+    "room_id": "r-a2",
+    "kind": "speaker",
+    "maker": "ミナモ音響",
+    "model": "MS-A20",
+    "installed_year": 2022,
+    "inputs": [
+      "AUX"
+    ],
+    "cable_location": "教卓のPCとつながっている",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-pj-m3",
+    "room_id": "r-m3",
+    "kind": "projector",
+    "maker": "ヒカリ電機",
+    "model": "HP-L300",
+    "installed_year": 2018,
+    "inputs": [
+      "HDMI1",
+      "VGA"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "教卓左の引き出し",
+    "remote_location": "教卓右の引き出し",
+    "quirks": [],
+    "suggested_quirks": [
+      "教卓側のHDMIケーブルの先端が緩い。挿してもぐらつくことがある"
+    ],
+    "rejected_quirks": [],
+    "lamp_hours": 5100,
+    "lamp_life_hours": 6000,
+    "vendor_id": "v-hikari",
+    "status": "active"
+  },
+  {
+    "id": "d-pj-e3",
+    "room_id": "r-e3",
+    "kind": "projector",
+    "maker": "ヒカリ電機",
+    "model": "HP-X520",
+    "installed_year": 2021,
+    "inputs": [
+      "HDMI1",
+      "HDMI2",
+      "VGA"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "教卓左の引き出し",
+    "remote_location": "教卓右の引き出し",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [
+      "リモコンを2回押さないと反応しない"
+    ],
+    "lamp_hours": 2400,
+    "lamp_life_hours": 10000,
+    "warranty_until": "2028-03-31",
+    "vendor_id": "v-hikari",
+    "status": "active"
+  },
+  {
+    "id": "d-disp-j3",
+    "room_id": "r-j3",
+    "kind": "display",
+    "maker": "セイリュウ映像",
+    "model": "SV-IB86W",
+    "installed_year": 2026,
+    "inputs": [
+      "無線投影",
+      "HDMI1",
+      "HDMI2"
+    ],
+    "default_input": "無線投影",
+    "cable_location": "教卓横のケーブルボックス（HDMIは予備）",
+    "remote_location": "電子黒板の下の棚",
+    "quirks": [
+      "電子黒板は無線投影。右上のWi-Fiマークが消えていたらHDMIでつなぐ"
+    ],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2031-03-31",
+    "vendor_id": "v-seiryu",
+    "status": "active"
+  },
+  {
+    "id": "d-spk-j3",
+    "room_id": "r-j3",
+    "kind": "speaker",
+    "maker": "ミナモ音響",
+    "model": "MS-A20",
+    "installed_year": 2022,
+    "inputs": [
+      "AUX"
+    ],
+    "cable_location": "教卓のPCとつながっている",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-pj-a3",
+    "room_id": "r-a3",
+    "kind": "projector",
+    "maker": "ヒカリ電機",
+    "model": "HP-L300",
+    "installed_year": 2018,
+    "inputs": [
+      "HDMI1",
+      "VGA"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "教卓左の引き出し",
+    "remote_location": "教卓右の引き出し",
+    "quirks": [
+      "教卓側のHDMIケーブルの先端が傷みやすい。挿す前に先端を見て、曲がっていたら使わない"
+    ],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "lamp_hours": 4800,
+    "lamp_life_hours": 6000,
+    "vendor_id": "v-hikari",
+    "status": "active"
+  },
+  {
+    "id": "d-pj-kikai",
+    "room_id": "r-kikai",
+    "kind": "projector",
+    "maker": "ヒカリ電機",
+    "model": "HP-X520",
+    "installed_year": 2021,
+    "inputs": [
+      "HDMI1",
+      "HDMI2",
+      "VGA"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "投影壁の下のラック",
+    "remote_location": "教卓右の引き出し",
+    "quirks": [
+      "HDMI端子が2つ。PCはHDMI1、書画カメラはHDMI2。挿した番号と入力切替の番号を合わせる"
+    ],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "lamp_hours": 3100,
+    "lamp_life_hours": 10000,
+    "warranty_until": "2028-03-31",
+    "vendor_id": "v-hikari",
+    "status": "active"
+  },
+  {
+    "id": "d-spk-kikai",
+    "room_id": "r-kikai",
+    "kind": "speaker",
+    "maker": "ミナモ音響",
+    "model": "MS-A20",
+    "installed_year": 2022,
+    "inputs": [
+      "AUX"
+    ],
+    "cable_location": "教卓のPCとつながっている",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-dc-kikai",
+    "room_id": "r-kikai",
+    "kind": "doc_camera",
+    "maker": "トモエ光学",
+    "model": "TD-D30",
+    "installed_year": 2022,
+    "inputs": [
+      "HDMI",
+      "USB"
+    ],
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2027-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-pc-kikai",
+    "room_id": "r-kikai",
+    "kind": "pc",
+    "maker": "クスノキ情報",
+    "model": "KP-T5",
+    "installed_year": 2023,
+    "inputs": [
+      "HDMI出力"
+    ],
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2028-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-disp-denki",
+    "room_id": "r-denki",
+    "kind": "display",
+    "maker": "セイリュウ映像",
+    "model": "SV-IB75T",
+    "installed_year": 2022,
+    "inputs": [
+      "HDMI1",
+      "HDMI2"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "教卓横のケーブルボックス",
+    "remote_location": "電子黒板の下の棚",
+    "quirks": [],
+    "suggested_quirks": [
+      "HDMI2に挿して映らないことが多い。入力はHDMI1のまま（4回）"
+    ],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-seiryu",
+    "status": "active"
+  },
+  {
+    "id": "d-pc-denki",
+    "room_id": "r-denki",
+    "kind": "pc",
+    "maker": "クスノキ情報",
+    "model": "KP-T5",
+    "installed_year": 2023,
+    "inputs": [
+      "HDMI出力"
+    ],
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2028-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-disp-jouhou",
+    "room_id": "r-jouhou",
+    "kind": "display",
+    "maker": "セイリュウ映像",
+    "model": "SV-IB75T",
+    "installed_year": 2022,
+    "inputs": [
+      "HDMI1",
+      "HDMI2",
+      "HDMI3"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "教卓横のケーブルボックス",
+    "remote_location": "電子黒板の下の棚",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-seiryu",
+    "status": "active"
+  },
+  {
+    "id": "d-pc-jouhou",
+    "room_id": "r-jouhou",
+    "kind": "pc",
+    "maker": "クスノキ情報",
+    "model": "KP-T5",
+    "installed_year": 2023,
+    "inputs": [
+      "HDMI出力"
+    ],
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2028-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-pj-seizu",
+    "room_id": "r-seizu",
+    "kind": "projector",
+    "maker": "ヒカリ電機",
+    "model": "HP-X520",
+    "installed_year": 2021,
+    "inputs": [
+      "HDMI1",
+      "HDMI2",
+      "VGA"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "教卓左の引き出し",
+    "remote_location": "教卓右の引き出し",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [
+      "雨の日は映りが悪い"
+    ],
+    "lamp_hours": 8900,
+    "lamp_life_hours": 10000,
+    "warranty_until": "2027-01-31",
+    "vendor_id": "v-hikari",
+    "status": "active"
+  },
+  {
+    "id": "d-dc-seizu",
+    "room_id": "r-seizu",
+    "kind": "doc_camera",
+    "maker": "トモエ光学",
+    "model": "TD-D30",
+    "installed_year": 2022,
+    "inputs": [
+      "HDMI",
+      "USB"
+    ],
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2027-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-disp-cad",
+    "room_id": "r-cad",
+    "kind": "display",
+    "maker": "セイリュウ映像",
+    "model": "SV-CD75",
+    "installed_year": 2022,
+    "inputs": [
+      "HDMI1",
+      "HDMI2",
+      "HDMI3"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "教卓下のケーブルボックス",
+    "remote_location": "ディスプレイ下の棚",
+    "quirks": [
+      "HDMI端子が3つ。教卓PCはHDMI1、持ち込みPCはHDMI2。挿した番号と入力切替の番号を合わせる"
+    ],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-seiryu",
+    "status": "active"
+  },
+  {
+    "id": "d-pc-cad",
+    "room_id": "r-cad",
+    "kind": "pc",
+    "maker": "クスノキ情報",
+    "model": "KP-W9",
+    "installed_year": 2024,
+    "inputs": [
+      "HDMI出力"
+    ],
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-pj-rika",
+    "room_id": "r-rika",
+    "kind": "projector",
+    "maker": "ヒカリ電機",
+    "model": "HP-X520",
+    "installed_year": 2021,
+    "inputs": [
+      "HDMI1",
+      "HDMI2",
+      "VGA"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "教卓左の引き出し",
+    "remote_location": "教卓右の引き出し",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "lamp_hours": 4600,
+    "lamp_life_hours": 10000,
+    "warranty_until": "2028-03-31",
+    "vendor_id": "v-hikari",
+    "status": "active"
+  },
+  {
+    "id": "d-dc-rika",
+    "room_id": "r-rika",
+    "kind": "doc_camera",
+    "maker": "トモエ光学",
+    "model": "TD-D30",
+    "installed_year": 2022,
+    "inputs": [
+      "HDMI",
+      "USB"
+    ],
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2027-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-pj-tamokuteki",
+    "room_id": "r-tamokuteki",
+    "kind": "projector",
+    "maker": "ヒカリ電機",
+    "model": "HP-X520",
+    "installed_year": 2021,
+    "inputs": [
+      "HDMI1",
+      "HDMI2",
+      "HDMI3"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "舞台前の床ボックス",
+    "remote_location": "入口横の操作盤",
+    "quirks": [
+      "大講義室のプロジェクターはHDMI端子が3つ。PCは舞台前の床ボックスのHDMI3。入力切替もHDMI3に合わせる"
+    ],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "lamp_hours": 6200,
+    "lamp_life_hours": 10000,
+    "warranty_until": "2028-03-31",
+    "vendor_id": "v-hikari",
+    "status": "active"
+  },
+  {
+    "id": "d-spk-tamokuteki",
+    "room_id": "r-tamokuteki",
+    "kind": "speaker",
+    "maker": "ミナモ音響",
+    "model": "MS-A30",
+    "installed_year": 2021,
+    "inputs": [
+      "AUX"
+    ],
+    "cable_location": "教卓のPCとつながっている",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-mic-tamokuteki",
+    "room_id": "r-tamokuteki",
+    "kind": "mic",
+    "maker": "ミナモ音響",
+    "model": "MW-H10",
+    "installed_year": 2021,
+    "inputs": [],
+    "remote_location": "入口横の操作盤の引き出し",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2028-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-disp-shokuin",
+    "room_id": "r-shokuin",
+    "kind": "display",
+    "maker": "セイリュウ映像",
+    "model": "SV-IB75T",
+    "installed_year": 2022,
+    "inputs": [
+      "HDMI1",
+      "HDMI2"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "教卓横のケーブルボックス",
+    "remote_location": "職員室の掲示板下の棚",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-seiryu",
+    "status": "active"
+  },
+  {
+    "id": "d-pj-taiiku",
+    "room_id": "r-taiiku",
+    "kind": "projector",
+    "maker": "ヒカリ電機",
+    "model": "HP-X520",
+    "installed_year": 2021,
+    "inputs": [
+      "HDMI1",
+      "VGA"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "ステージ脇のラック",
+    "remote_location": "ステージ脇のラックの引き出し",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "lamp_hours": 1900,
+    "lamp_life_hours": 10000,
+    "warranty_until": "2028-03-31",
+    "vendor_id": "v-hikari",
+    "status": "active"
+  },
+  {
+    "id": "d-spk-taiiku",
+    "room_id": "r-taiiku",
+    "kind": "speaker",
+    "maker": "ミナモ音響",
+    "model": "MS-PA800",
+    "installed_year": 2019,
+    "inputs": [
+      "AUX",
+      "マイク1",
+      "マイク2"
+    ],
+    "cable_location": "ステージ脇のラック",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2027-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-mic-taiiku-1",
+    "room_id": "r-taiiku",
+    "kind": "mic",
+    "maker": "ミナモ音響",
+    "model": "MW-H10",
+    "installed_year": 2021,
+    "inputs": [],
+    "remote_location": "ステージ脇のラックの引き出し",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2028-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-mic-taiiku-2",
+    "room_id": "r-taiiku",
+    "kind": "mic",
+    "maker": "ミナモ音響",
+    "model": "MW-H10",
+    "installed_year": 2021,
+    "inputs": [],
+    "remote_location": "ステージ脇のラックの引き出し",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2028-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-disp-kaigi",
+    "room_id": "r-kaigi",
+    "kind": "display",
+    "maker": "セイリュウ映像",
+    "model": "SV-IB75T",
+    "installed_year": 2022,
+    "inputs": [
+      "HDMI1",
+      "HDMI2"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "教卓横のケーブルボックス",
+    "remote_location": "電子黒板の下の棚",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-seiryu",
+    "status": "active"
+  },
+  {
+    "id": "d-disp-shinro",
+    "room_id": "r-shinro",
+    "kind": "display",
+    "maker": "セイリュウ映像",
+    "model": "SV-IB65",
+    "installed_year": 2018,
+    "inputs": [
+      "HDMI1"
+    ],
+    "default_input": "HDMI1",
+    "cable_location": "テーブル下のケーブルボックス",
+    "remote_location": "棚の上",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "vendor_id": "v-seiryu",
+    "status": "active"
+  },
+  {
+    "id": "d-pc-ict",
+    "room_id": "r-ict",
+    "kind": "pc",
+    "maker": "クスノキ情報",
+    "model": "KP-W9",
+    "installed_year": 2024,
+    "inputs": [
+      "HDMI出力"
+    ],
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "active"
+  },
+  {
+    "id": "d-pj-spare-1",
+    "room_id": null,
+    "kind": "projector",
+    "maker": "ヒカリ電機",
+    "model": "HP-X520",
+    "installed_year": 2021,
+    "inputs": [
+      "HDMI1",
+      "HDMI2",
+      "VGA"
+    ],
+    "default_input": "HDMI1",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "lamp_hours": 300,
+    "lamp_life_hours": 10000,
+    "warranty_until": "2028-03-31",
+    "vendor_id": "v-hikari",
+    "status": "spare"
+  },
+  {
+    "id": "d-pj-spare-2",
+    "room_id": null,
+    "kind": "projector",
+    "maker": "ヒカリ電機",
+    "model": "HP-L300",
+    "installed_year": 2018,
+    "inputs": [
+      "HDMI1",
+      "VGA"
+    ],
+    "default_input": "HDMI1",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "lamp_hours": 900,
+    "lamp_life_hours": 6000,
+    "vendor_id": "v-hikari",
+    "status": "spare"
+  },
+  {
+    "id": "d-disp-spare-1",
+    "room_id": null,
+    "kind": "display",
+    "maker": "セイリュウ映像",
+    "model": "SV-IB75T",
+    "installed_year": 2022,
+    "inputs": [
+      "HDMI1",
+      "HDMI2"
+    ],
+    "default_input": "HDMI1",
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2029-03-31",
+    "vendor_id": "v-seiryu",
+    "status": "spare"
+  },
+  {
+    "id": "d-mic-spare-1",
+    "room_id": null,
+    "kind": "mic",
+    "maker": "ミナモ音響",
+    "model": "MW-H10",
+    "installed_year": 2021,
+    "inputs": [],
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2028-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "spare"
+  },
+  {
+    "id": "d-spk-spare-1",
+    "room_id": null,
+    "kind": "speaker",
+    "maker": "ミナモ音響",
+    "model": "MS-P10",
+    "installed_year": 2022,
+    "inputs": [
+      "AUX",
+      "Bluetooth"
+    ],
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2027-03-31",
+    "vendor_id": "v-kusunoki",
+    "status": "spare"
+  },
+  {
+    "id": "d-wl-spare-1",
+    "room_id": null,
+    "kind": "other",
+    "maker": "セイリュウ映像",
+    "model": "SV-WA1（無線投影用アダプタ）",
+    "installed_year": 2026,
+    "inputs": [
+      "HDMI出力"
+    ],
+    "quirks": [],
+    "suggested_quirks": [],
+    "rejected_quirks": [],
+    "warranty_until": "2031-03-31",
+    "vendor_id": "v-seiryu",
+    "status": "spare"
+  }
+]

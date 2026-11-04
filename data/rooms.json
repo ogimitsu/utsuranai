@@ -1,0 +1,330 @@
+[
+  {
+    "id": "r-m1",
+    "name": "機械科1年",
+    "building": "本館",
+    "floor": 1,
+    "devices": [
+      "d-pj-m1",
+      "d-spk-m1",
+      "d-dc-m1"
+    ],
+    "notes_static": [
+      "教卓左の引き出しにHDMIケーブル。リモコンは教卓右の引き出し",
+      "プロジェクターの入力はHDMI1"
+    ]
+  },
+  {
+    "id": "r-e1",
+    "name": "電気科1年",
+    "building": "本館",
+    "floor": 1,
+    "devices": [
+      "d-pj-e1",
+      "d-spk-e1",
+      "d-dc-e1"
+    ],
+    "notes_static": [
+      "教卓左の引き出しにHDMIケーブル。リモコンは教卓右の引き出し",
+      "プロジェクターは2018年型。書画カメラは教卓横"
+    ]
+  },
+  {
+    "id": "r-j1",
+    "name": "電子情報科1年",
+    "building": "本館",
+    "floor": 1,
+    "devices": [
+      "d-disp-j1",
+      "d-spk-j1"
+    ],
+    "notes_static": [
+      "電子黒板は2026年設置の無線投影。右上にWi-Fiマークが出る",
+      "消えていたら教卓横のケーブルボックスのHDMIでつなぐ"
+    ]
+  },
+  {
+    "id": "r-a1",
+    "name": "建築科1年",
+    "building": "本館",
+    "floor": 1,
+    "devices": [
+      "d-pj-a1"
+    ],
+    "notes_static": [
+      "教卓左の引き出しにHDMIケーブル。リモコンは教卓右の引き出し"
+    ]
+  },
+  {
+    "id": "r-m2",
+    "name": "機械科2年",
+    "building": "本館",
+    "floor": 2,
+    "devices": [
+      "d-disp-m2",
+      "d-spk-m2"
+    ],
+    "notes_static": [
+      "電子黒板の入力はHDMI1。ケーブルは教卓横のケーブルボックス"
+    ]
+  },
+  {
+    "id": "r-e2",
+    "name": "電気科2年",
+    "building": "本館",
+    "floor": 2,
+    "devices": [
+      "d-pj-e2",
+      "d-spk-e2"
+    ],
+    "notes_static": [
+      "プロジェクターは2018年型。教卓側のHDMI端子が弱く、まっすぐ抜き差しする",
+      "ケーブルは2026年10月に交換済み。予備ケーブルは教卓左の引き出し"
+    ]
+  },
+  {
+    "id": "r-j2",
+    "name": "電子情報科2年",
+    "building": "本館",
+    "floor": 2,
+    "devices": [
+      "d-disp-j2",
+      "d-spk-j2"
+    ],
+    "notes_static": [
+      "電子黒板は2026年設置の無線投影。右上にWi-Fiマークが出る",
+      "消えていたら教卓横のケーブルボックスのHDMIでつなぐ"
+    ]
+  },
+  {
+    "id": "r-a2",
+    "name": "建築科2年",
+    "building": "本館",
+    "floor": 2,
+    "devices": [
+      "d-disp-a2",
+      "d-spk-a2"
+    ],
+    "notes_static": [
+      "電子黒板の入力はHDMI1。ケーブルは教卓横のケーブルボックス"
+    ]
+  },
+  {
+    "id": "r-m3",
+    "name": "機械科3年",
+    "building": "本館",
+    "floor": 3,
+    "devices": [
+      "d-pj-m3"
+    ],
+    "notes_static": [
+      "プロジェクターは2018年型。ケーブルは教卓左の引き出し",
+      "ランプ寿命が近い。暗いと感じたらICT担当へ"
+    ]
+  },
+  {
+    "id": "r-e3",
+    "name": "電気科3年",
+    "building": "本館",
+    "floor": 3,
+    "devices": [
+      "d-pj-e3"
+    ],
+    "notes_static": [
+      "教卓左の引き出しにHDMIケーブル。リモコンは教卓右の引き出し"
+    ]
+  },
+  {
+    "id": "r-j3",
+    "name": "電子情報科3年",
+    "building": "本館",
+    "floor": 3,
+    "devices": [
+      "d-disp-j3",
+      "d-spk-j3"
+    ],
+    "notes_static": [
+      "電子黒板は2026年設置の無線投影。右上にWi-Fiマークが出る",
+      "消えていたら教卓横のケーブルボックスのHDMIでつなぐ"
+    ]
+  },
+  {
+    "id": "r-a3",
+    "name": "建築科3年",
+    "building": "本館",
+    "floor": 3,
+    "devices": [
+      "d-pj-a3"
+    ],
+    "notes_static": [
+      "プロジェクターは2018年型。ケーブルは教卓左の引き出し",
+      "ケーブル先端が傷みやすい。曲がっていたら予備に替える"
+    ]
+  },
+  {
+    "id": "r-kikai",
+    "name": "機械実習室",
+    "building": "実習棟",
+    "floor": 1,
+    "devices": [
+      "d-pj-kikai",
+      "d-spk-kikai",
+      "d-dc-kikai",
+      "d-pc-kikai"
+    ],
+    "notes_static": [
+      "投影壁の下のラックにPC・書画カメラ・プロジェクターの配線",
+      "HDMI端子は2つ（PC=1、書画カメラ=2）。リモコンはラックの上段"
+    ]
+  },
+  {
+    "id": "r-denki",
+    "name": "電気実習室",
+    "building": "実習棟",
+    "floor": 1,
+    "devices": [
+      "d-disp-denki",
+      "d-pc-denki"
+    ],
+    "notes_static": [
+      "電子黒板の入力はHDMI1。教卓PCのケーブルは教卓横",
+      "電源タップは教卓の下"
+    ]
+  },
+  {
+    "id": "r-jouhou",
+    "name": "電子情報実習室",
+    "building": "実習棟",
+    "floor": 2,
+    "devices": [
+      "d-disp-jouhou",
+      "d-pc-jouhou"
+    ],
+    "notes_static": [
+      "電子黒板はHDMI端子が3つ。教卓PCはHDMI1",
+      "生徒用PCの配線は教卓の奥のラック"
+    ]
+  },
+  {
+    "id": "r-seizu",
+    "name": "建築製図室",
+    "building": "実習棟",
+    "floor": 2,
+    "devices": [
+      "d-pj-seizu",
+      "d-dc-seizu"
+    ],
+    "notes_static": [
+      "プロジェクターは2021年型。書画カメラは製図台の横",
+      "ランプ寿命が近い。暗いと感じたらICT担当へ"
+    ]
+  },
+  {
+    "id": "r-cad",
+    "name": "CAD室",
+    "building": "実習棟",
+    "floor": 2,
+    "devices": [
+      "d-disp-cad",
+      "d-pc-cad"
+    ],
+    "notes_static": [
+      "大型ディスプレイはHDMI端子が3つ（教卓PC=1、持ち込みPC=2、予備=3）",
+      "ケーブルが挿さっている番号と入力切替の番号を合わせる。リモコンはディスプレイ下の棚"
+    ]
+  },
+  {
+    "id": "r-rika",
+    "name": "理科室",
+    "building": "実習棟",
+    "floor": 1,
+    "devices": [
+      "d-pj-rika",
+      "d-dc-rika"
+    ],
+    "notes_static": [
+      "プロジェクターの入力はHDMI1。書画カメラは実験台の横",
+      "リモコンは準備室の机"
+    ]
+  },
+  {
+    "id": "r-tamokuteki",
+    "name": "多目的室（大講義室）",
+    "building": "本館",
+    "floor": 1,
+    "devices": [
+      "d-pj-tamokuteki",
+      "d-spk-tamokuteki",
+      "d-mic-tamokuteki"
+    ],
+    "notes_static": [
+      "プロジェクターはHDMI端子が3つ。PCは舞台前の床ボックスのHDMI3",
+      "マイクと操作盤は入口横。予備電池は操作盤の引き出し"
+    ]
+  },
+  {
+    "id": "r-shokuin",
+    "name": "職員室",
+    "building": "本館",
+    "floor": 2,
+    "devices": [
+      "d-disp-shokuin"
+    ],
+    "notes_static": [
+      "朝会用の電子黒板。リモコンは掲示板下の棚"
+    ]
+  },
+  {
+    "id": "r-ict",
+    "name": "ICT準備室",
+    "building": "本館",
+    "floor": 1,
+    "devices": [
+      "d-pc-ict"
+    ],
+    "notes_static": [
+      "予備プロジェクターは棚A-1・A-2。予備電子黒板は入口左のキャスター台",
+      "HDMIケーブル・変換アダプタは棚B-1・B-2、電池は棚B-3、予備マイクとポータブルスピーカーは棚C-2"
+    ]
+  },
+  {
+    "id": "r-taiiku",
+    "name": "体育館",
+    "building": "体育館",
+    "floor": 1,
+    "devices": [
+      "d-pj-taiiku",
+      "d-spk-taiiku",
+      "d-mic-taiiku-1",
+      "d-mic-taiiku-2"
+    ],
+    "notes_static": [
+      "音響ラックはステージ脇。マイク2本と予備電池はラックの引き出し",
+      "プロジェクターはステージ上の天吊り。入力はHDMI1"
+    ]
+  },
+  {
+    "id": "r-kaigi",
+    "name": "会議室",
+    "building": "本館",
+    "floor": 2,
+    "devices": [
+      "d-disp-kaigi"
+    ],
+    "notes_static": [
+      "電子黒板の入力はHDMI1。ケーブルは会議机の下"
+    ]
+  },
+  {
+    "id": "r-shinro",
+    "name": "進路指導室",
+    "building": "本館",
+    "floor": 1,
+    "devices": [
+      "d-disp-shinro"
+    ],
+    "notes_static": [
+      "電子黒板は2018年型の小型。リモコンは棚の上"
+    ]
+  }
+]

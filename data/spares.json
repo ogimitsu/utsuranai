@@ -1,0 +1,104 @@
+[
+  {
+    "id": "sp-pj-1",
+    "kind": "projector",
+    "name": "予備プロジェクター ヒカリ電機 HP-X520（2021年型・リモコン付き）",
+    "location": "ICT準備室 棚A-1",
+    "qty": 1,
+    "consumable": false,
+    "device_id": "d-pj-spare-1"
+  },
+  {
+    "id": "sp-pj-2",
+    "kind": "projector",
+    "name": "予備プロジェクター ヒカリ電機 HP-L300（2018年型・同型教室用）",
+    "location": "ICT準備室 棚A-2",
+    "qty": 1,
+    "consumable": false,
+    "device_id": "d-pj-spare-2"
+  },
+  {
+    "id": "sp-disp-1",
+    "kind": "display",
+    "name": "予備電子黒板 セイリュウ映像 SV-IB75T（キャスタースタンド付き）",
+    "location": "ICT準備室 入口左（キャスター台）",
+    "qty": 1,
+    "consumable": false,
+    "device_id": "d-disp-spare-1"
+  },
+  {
+    "id": "sp-mic",
+    "kind": "mic",
+    "name": "予備ワイヤレスマイク ミナモ音響 MW-H10",
+    "location": "ICT準備室 棚C-2",
+    "qty": 2,
+    "consumable": false,
+    "device_id": "d-mic-spare-1"
+  },
+  {
+    "id": "sp-spk",
+    "kind": "speaker",
+    "name": "ポータブルスピーカー ミナモ音響 MS-P10",
+    "location": "ICT準備室 棚C-2",
+    "qty": 1,
+    "consumable": false,
+    "device_id": "d-spk-spare-1"
+  },
+  {
+    "id": "sp-wl",
+    "kind": "other",
+    "name": "無線投影用アダプタ セイリュウ映像 SV-WA1",
+    "location": "ICT準備室 棚B-2",
+    "qty": 1,
+    "consumable": false,
+    "device_id": "d-wl-spare-1"
+  },
+  {
+    "id": "sp-hdmi-3m",
+    "kind": "cable",
+    "name": "HDMIケーブル 3m",
+    "location": "ICT準備室 棚B-1",
+    "qty": 6,
+    "consumable": true
+  },
+  {
+    "id": "sp-hdmi-5m",
+    "kind": "cable",
+    "name": "HDMIケーブル 5m",
+    "location": "ICT準備室 棚B-1",
+    "qty": 3,
+    "consumable": true
+  },
+  {
+    "id": "sp-hdmi-10m",
+    "kind": "cable",
+    "name": "HDMIケーブル 10m（体育館・多目的室用）",
+    "location": "ICT準備室 棚B-1",
+    "qty": 2,
+    "consumable": true
+  },
+  {
+    "id": "sp-adapter",
+    "kind": "adapter",
+    "name": "HDMI変換アダプタ（USB-C→HDMI）",
+    "location": "ICT準備室 棚B-2",
+    "qty": 4,
+    "consumable": true
+  },
+  {
+    "id": "sp-battery",
+    "kind": "battery",
+    "name": "単3乾電池（マイク・リモコン用）",
+    "location": "ICT準備室 棚B-3",
+    "qty": 40,
+    "consumable": true
+  },
+  {
+    "id": "sp-lamp-l300",
+    "kind": "lamp",
+    "name": "交換ランプ HP-L300用",
+    "location": "ICT準備室 棚C-1",
+    "qty": 1,
+    "consumable": true
+  }
+]

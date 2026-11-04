@@ -1,0 +1,49 @@
+[
+  {
+    "id": "v-hikari",
+    "name": "ヒカリ電機サービス 北陸支店",
+    "contact_role": "保守窓口（プロジェクター保守契約）",
+    "covers": [
+      "projector",
+      "HP-L300",
+      "HP-X520"
+    ],
+    "contract_until": "2027-03-31",
+    "response_days": 3
+  },
+  {
+    "id": "v-seiryu",
+    "name": "セイリュウ映像 カスタマーサポート",
+    "contact_role": "保守窓口（電子黒板保守契約）",
+    "covers": [
+      "display",
+      "SV-IB65",
+      "SV-IB75T",
+      "SV-CD75",
+      "SV-IB86W",
+      "SV-WA1"
+    ],
+    "contract_until": "2028-03-31",
+    "response_days": 5
+  },
+  {
+    "id": "v-kusunoki",
+    "name": "クスノキ情報システム 学校ネットワーク担当",
+    "contact_role": "保守窓口（電気工事・校内無線LAN・音響・教卓PC）",
+    "covers": [
+      "speaker",
+      "mic",
+      "pc",
+      "doc_camera",
+      "MS-A20",
+      "MS-A30",
+      "MS-PA800",
+      "MW-H10",
+      "KP-T5",
+      "KP-W9",
+      "無線LAN"
+    ],
+    "contract_until": "2027-03-31",
+    "response_days": 4
+  }
+]

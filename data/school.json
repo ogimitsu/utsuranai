@@ -1,0 +1,183 @@
+{
+  "name": "県立あさひ台工業高等学校",
+  "fiscal_year": 2026,
+  "events": [
+    {
+      "id": "ev-shigyo-1",
+      "name": "1学期始業式",
+      "date": "2026-04-06",
+      "rooms": [
+        "r-taiiku"
+      ],
+      "ict_notes": "体育館のマイク電池を交換し、音響ラックの電源を確認"
+    },
+    {
+      "id": "ev-nyugaku",
+      "name": "入学式",
+      "date": "2026-04-08",
+      "rooms": [
+        "r-taiiku",
+        "r-m1",
+        "r-e1",
+        "r-j1",
+        "r-a1"
+      ],
+      "ict_notes": "前日に体育館の音響を点検。予備プロジェクターを体育館へ。1年教室の入力とケーブルを確認"
+    },
+    {
+      "id": "ev-orientation",
+      "name": "新入生オリエンテーション",
+      "date": "2026-04-09",
+      "rooms": [
+        "r-tamokuteki",
+        "r-taiiku"
+      ],
+      "ict_notes": "多目的室のHDMI3とマイクを確認。10mのHDMIケーブルを床ボックスへ"
+    },
+    {
+      "id": "ev-chukan-1",
+      "name": "1学期中間考査",
+      "date": "2026-05-20",
+      "rooms": [
+        "r-m1",
+        "r-e1",
+        "r-j1",
+        "r-a1",
+        "r-m2",
+        "r-e2",
+        "r-j2",
+        "r-a2",
+        "r-m3",
+        "r-e3",
+        "r-j3",
+        "r-a3"
+      ],
+      "ict_notes": "考査期間は大型提示装置を使わない。リモコン電池の交換日"
+    },
+    {
+      "id": "ev-kigyo",
+      "name": "企業説明会",
+      "date": "2026-06-19",
+      "rooms": [
+        "r-tamokuteki"
+      ],
+      "ict_notes": "多目的室のプロジェクター（HDMI3）とマイク2本を確認。予備電池と予備マイクを会場へ"
+    },
+    {
+      "id": "ev-kimatsu-1",
+      "name": "1学期期末考査",
+      "date": "2026-07-08",
+      "rooms": [
+        "r-m1",
+        "r-e1",
+        "r-j1",
+        "r-a1",
+        "r-m2",
+        "r-e2",
+        "r-j2",
+        "r-a2",
+        "r-m3",
+        "r-e3",
+        "r-j3",
+        "r-a3"
+      ],
+      "ict_notes": "考査後に2026年設置の電子黒板3台の無線を点検"
+    },
+    {
+      "id": "ev-taiken",
+      "name": "中学生体験入学",
+      "date": "2026-08-05",
+      "rooms": [
+        "r-kikai",
+        "r-jouhou",
+        "r-cad",
+        "r-denki"
+      ],
+      "ict_notes": "前日に実習室のHDMIケーブルと入力切替を確認。CAD室の端子ラベルを見直す"
+    },
+    {
+      "id": "ev-bunkasai",
+      "name": "文化祭",
+      "date": "2026-10-16",
+      "rooms": [
+        "r-taiiku",
+        "r-tamokuteki",
+        "r-j1",
+        "r-j2",
+        "r-j3"
+      ],
+      "ict_notes": "体育館の音響とマイクを前日に点検。展示教室の電子黒板は無線投影の接続を確認"
+    },
+    {
+      "id": "ev-internship",
+      "name": "インターンシップ報告会",
+      "date": "2026-10-30",
+      "rooms": [
+        "r-tamokuteki"
+      ],
+      "ict_notes": "多目的室の投影とマイクを前日に確認。発表用PCのHDMI接続を試す"
+    },
+    {
+      "id": "ev-shinro",
+      "name": "進路ガイダンス",
+      "date": "2026-11-11",
+      "rooms": [
+        "r-tamokuteki",
+        "r-shinro"
+      ],
+      "ict_notes": "多目的室のHDMI3とマイク電池を確認。進路指導室の電子黒板は故障中のため予備機を用意"
+    },
+    {
+      "id": "ev-kimatsu-2",
+      "name": "2学期期末考査",
+      "date": "2026-12-07",
+      "rooms": [
+        "r-m1",
+        "r-e1",
+        "r-j1",
+        "r-a1",
+        "r-m2",
+        "r-e2",
+        "r-j2",
+        "r-a2",
+        "r-m3",
+        "r-e3",
+        "r-j3",
+        "r-a3"
+      ],
+      "ict_notes": "考査後にランプ寿命が近いプロジェクター（建築製図室、2018年型の教室）を点検"
+    },
+    {
+      "id": "ev-kadai",
+      "name": "課題研究発表会",
+      "date": "2027-01-22",
+      "rooms": [
+        "r-tamokuteki",
+        "r-kikai",
+        "r-denki",
+        "r-jouhou",
+        "r-seizu",
+        "r-cad"
+      ],
+      "ict_notes": "多目的室のプロジェクターとマイク2本を前日に確認。発表PCを持ち込む班はHDMI変換アダプタを準備"
+    },
+    {
+      "id": "ev-sotsugyo",
+      "name": "卒業式",
+      "date": "2027-03-01",
+      "rooms": [
+        "r-taiiku"
+      ],
+      "ict_notes": "前々日に体育館の音響とプロジェクターを点検。予備マイクと予備電池を用意"
+    },
+    {
+      "id": "ev-shuryo",
+      "name": "修了式",
+      "date": "2027-03-24",
+      "rooms": [
+        "r-taiiku"
+      ],
+      "ict_notes": "年度末にランプ時間と保証期限を確認し、ICT準備室の予備品を数える"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+#!/bin/sh
+# コミット前チェック：
+#  1) data/*.json がスキーマと禁止語（実在校名・連絡先らしきもの）を通るか
+#  2) ステージされたテキストに電話番号・メールアドレス・APIキーらしき文字列が無いか
+set -e
+
+if [ -d data ]; then
+  node scripts/validate-data.ts >/dev/null || {
+    echo "pre-commit: data/*.json の検証に失敗しました。node scripts/validate-data.ts を実行してください。"
+    exit 1
+  }
+fi
+
+# 禁止語の説明を書いている文書と、この検査自体は対象外（データ・ソース・README は検査する）
+files=$(git diff --cached --name-only --diff-filter=ACM | grep -Ev '^(package-lock\.json|node_modules/|docs/|CLAUDE\.md|AGENTS\.md|\.claude/agents/|\.githooks/|scripts/validate-data\.ts)' || true)
+[ -z "$files" ] && exit 0
+
+if git diff --cached -U0 -- $files | grep -E '^\+' | grep -Ev '^\+\+\+' | grep -En '0[0-9]{1,4}-[0-9]{1,4}-[0-9]{3,4}|[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}|sk-ant-[A-Za-z0-9_-]{10,}|視聴覚' ; then
+  echo "pre-commit: 電話番号・メールアドレス・APIキー・禁止語らしき文字列があります。確認してください。"
+  exit 1
+fi
+exit 0
