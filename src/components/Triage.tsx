@@ -344,7 +344,7 @@ export function Triage({
             onClick={() => record({ ...escalation(), resolved: "spare" })}
             className="rounded-2xl bg-zinc-900 px-4 py-5 text-lg font-semibold text-white"
           >
-            予備機で授業を続ける（ICT担当に知らせる）
+            予備機で続ける（ICT担当に知らせる）
           </button>
           <button
             type="button"
