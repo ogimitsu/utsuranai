@@ -27,8 +27,7 @@ const CAUSE_ORDER: CauseTag[] = [
   "power",
   "network",
   "device_fault",
-  "unknown",
-];
+]; // 「わからない」は上の「わからない・急いでいる」ボタンが兼ねる
 const MAX_ROUNDS = 4;
 
 // 経過時間の計測（イベント内でのみ呼ぶ。描画中には使わない）
