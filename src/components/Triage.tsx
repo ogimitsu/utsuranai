@@ -305,18 +305,6 @@ export function Triage({
         </div>
       )}
 
-      {reply.kind !== "escalate" && (
-        <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-3 text-sm">
-          {reply.spare_hint && <p className="mb-2 text-zinc-600">{reply.spare_hint}</p>}
-          <button
-            type="button"
-            onClick={giveUp}
-            className="w-full rounded-xl border border-zinc-400 bg-white px-4 py-3 text-base font-semibold"
-          >
-            急ぐ → 予備機で続けて、ICT担当に知らせる
-          </button>
-        </div>
-      )}
 
       {reply.kind === "steps" && (
         <div className="grid grid-cols-2 gap-3">
@@ -333,6 +321,19 @@ export function Triage({
             className="rounded-2xl border-2 border-zinc-900 px-4 py-5 text-lg font-semibold"
           >
             直らない
+          </button>
+        </div>
+      )}
+
+      {reply.kind !== "escalate" && (
+        <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-3 text-sm">
+          {reply.spare_hint && <p className="mb-2 text-zinc-600">{reply.spare_hint}</p>}
+          <button
+            type="button"
+            onClick={giveUp}
+            className="w-full rounded-xl border border-zinc-400 bg-white px-4 py-3 text-base font-semibold"
+          >
+            急ぐ → 予備機で続けて、ICT担当に知らせる
           </button>
         </div>
       )}
