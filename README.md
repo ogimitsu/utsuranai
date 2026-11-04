@@ -66,7 +66,7 @@ npm run dev
   - `src/lib/agent/documents.ts` — 文書生成。Sonnet 5.5 のストリーミング、事実パックをキャッシュ。APIキーが無ければ同じ事実から雛形を組む
   - `src/lib/agent/photo.ts` — 写真の補助判定。Sonnet 5.5 の画像入力＋構造化出力。写真は保存しない
   - モデルは用途で使い分け（`src/lib/llm/client.ts`）。ここだけ差し替えればローカルLLMに移せる
-- 経緯と判断は `docs/DECISIONS.md`、日ごとの作業は `docs/BUILD_LOG.md`、仕様は `docs/SPEC.md`。
+- 経緯と判断は `docs/DECISIONS.md`、日ごとの作業は `docs/BUILD_LOG.md`、仕様は `docs/SPEC.md`、デモ台本は `docs/DEMO.md`。
 
 ## 構成
 
