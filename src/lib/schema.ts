@@ -104,6 +104,7 @@ export const Device = z.object({
   default_input: z.string().optional(),
   cable_location: z.string().optional(), // 「教卓右の引き出し」
   remote_location: z.string().optional(),
+  power_location: z.string().optional(), // 「教卓裏の電源タップ」（スピーカー・アンプなど主電源がある機器）
   quirks: z.array(z.string()).default([]), // ICT担当が承認した確認ポイント
   suggested_quirks: z.array(z.string()).default([]), // AIの提案（未承認）
   rejected_quirks: z.array(z.string()).default([]), // ICT担当が却下した提案（再提案しない）

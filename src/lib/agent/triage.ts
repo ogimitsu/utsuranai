@@ -66,6 +66,7 @@ function buildSystemPrompt(ctx: RoomContext, symptom: Symptom, today: string, qu
     いつもの入力: d.default_input,
     ケーブルの場所: d.cable_location,
     リモコンの場所: d.remote_location,
+    電源の場所: d.power_location,
     既知の確認ポイント: d.quirks,
   }));
   const playbooks = ctx.playbooks
