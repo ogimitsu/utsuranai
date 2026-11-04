@@ -65,7 +65,7 @@ export default async function RoomPage(props: PageProps<"/room/[id]">) {
             {ctx.recentIncidents.slice(0, 3).map((i) => (
               <li key={i.id}>
                 {i.datetime.slice(5, 10).replace("-", "/")}　{SYMPTOM_LABEL[i.symptom]} → {CAUSE_LABEL[i.cause_tag]}
-                {i.note && <span className="text-zinc-400">　{i.note}</span>}
+                {i.note && <span className="block pl-[3.5em] text-zinc-400">{i.note}</span>}
               </li>
             ))}
           </ul>
