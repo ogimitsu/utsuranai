@@ -40,11 +40,12 @@ export default async function QrPage() {
         <PrintButton />
       </header>
 
+      {/* 印刷時：A4縦・余白10mmで 2列×3段＝6枚。カードの高さを mm で固定して段ずれを防ぐ */}
       <div className="grid grid-cols-2 gap-4 print:grid-cols-2 print:gap-0">
         {cards.map(({ room, url, svg }) => (
           <article
             key={room.id}
-            className="flex flex-col items-center rounded-2xl border border-zinc-300 bg-white p-4 text-center print:break-inside-avoid print:rounded-none print:border-dashed"
+            className="flex flex-col items-center justify-center rounded-2xl border border-zinc-300 bg-white p-4 text-center print:h-[92mm] print:break-inside-avoid print:rounded-none print:border-dashed print:p-3"
             style={{ printColorAdjust: "exact" }}
           >
             <p className="text-xs text-zinc-500">{school.name}</p>

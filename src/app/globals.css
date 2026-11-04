@@ -17,3 +17,14 @@ body {
     "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Meiryo", "Noto Sans JP",
     system-ui, sans-serif;
 }
+
+/* 教卓QRカードの印刷（/admin/qr）。A4縦・余白10mm → 印字面 190mm×277mm に 2列×3段 */
+@page {
+  size: A4 portrait;
+  margin: 10mm;
+}
+@media print {
+  body {
+    background: #fff;
+  }
+}

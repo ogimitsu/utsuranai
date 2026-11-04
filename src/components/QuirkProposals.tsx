@@ -5,7 +5,7 @@ import { useState } from "react";
 
 /**
  * 確認ポイントの提案（AI・ルールが履歴から見つけたもの）の承認・却下。
- * 承認すると教室の静的カードに出る。却下すると再提案されない。
+ * 承認すると教室のメモに出る。却下すると再提案されない。
  */
 export type ProposalItem = { device_id: string; room: string; kind: string; text: string };
 
@@ -95,7 +95,7 @@ export function QuirkProposals({ items, hasKey }: { items: ProposalItem[]; hasKe
           {running ? "履歴を読んでいます…" : "履歴から提案を作る"}
         </button>
         <span className="text-zinc-500">
-          {msg ?? (hasKey ? "Sonnet が今年度の記録から、静的カードに載せる1行を提案します" : "APIキーが無いため、集計ルールで提案します")}
+          {msg ?? (hasKey ? "Sonnet が今年度の記録から、教室のメモに載せる1行を提案します" : "APIキーが無いため、集計ルールで提案します")}
         </span>
       </div>
     </div>

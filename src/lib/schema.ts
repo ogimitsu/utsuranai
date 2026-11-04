@@ -89,7 +89,7 @@ export const Room = z.object({
   building: z.string(),
   floor: z.number(),
   devices: z.array(z.string()), // device ids
-  notes_static: z.array(z.string()).default([]), // 静的カード（AIなしで常に出す）
+  notes_static: z.array(z.string()).default([]), // 教室のメモ（AIなしで常に出す）
 });
 export type Room = z.infer<typeof Room>;
 

@@ -8,7 +8,7 @@ import { hasApiKey } from "@/lib/llm/client";
 
 /**
  * 教室ページ。教卓のQRコードからここに来る。
- * 上：静的カード（AIなしで常に出る）／下：一次対応フロー
+ * 上：教室のメモ（AIなしで常に出る）／下：一次対応フロー
  */
 export default async function RoomPage(props: PageProps<"/room/[id]">) {
   const { id } = await props.params;

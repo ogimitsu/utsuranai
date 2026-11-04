@@ -291,7 +291,7 @@ export function factPackToText(f: FactPack): string {
     if (d.warranty_until) L.push(`  - 保守期限: ${d.warranty_until}${d.vendor ? `（${d.vendor}）` : ""}`);
   }
   L.push("");
-  L.push("## 承認済みの確認ポイント（教室の静的カードに出ているもの）");
+  L.push("## 承認済みの確認ポイント（教室のメモに出ているもの）");
   for (const q of f.quirks_by_room) L.push(`- ${q.room} ${q.kind}: ${q.quirk}`);
   L.push("");
   L.push("## 寿命・期限");

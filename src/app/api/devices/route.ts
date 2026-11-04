@@ -3,7 +3,7 @@ import { loadData, updateDevice } from "@/lib/store";
 
 /**
  * 確認ポイントの承認・却下。
- * approve: suggested_quirks → quirks（教室の静的カードに出る）
+ * approve: suggested_quirks → quirks（教室のメモに出る）
  * reject : suggested_quirks → rejected_quirks（再提案しない）
  */
 const Body = z.object({

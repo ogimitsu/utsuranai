@@ -6,7 +6,7 @@ import { buildFactPack, type DeviceFact } from "./facts";
 
 /**
  * 確認ポイントの抽出（F3）。
- * 履歴から「教室の静的カードに載せられる1行」を提案し、devices[].suggested_quirks に積む。
+ * 履歴から「教室のメモに載せられる1行」を提案し、devices[].suggested_quirks に積む。
  * 承認はICT担当が行う（/api/devices PATCH）。AIの推測を勝手に正にしない。
  *
  * Sonnet 5.5 はツール呼び出しの強制（tool_choice: tool）を受け付けないため、
@@ -15,7 +15,7 @@ import { buildFactPack, type DeviceFact } from "./facts";
 
 export const QuirkProposal = z.object({
   device_id: z.string().describe("対象機器のid。事実にあるものだけ"),
-  quirk: z.string().describe("静的カードに載せる1文、60字以内。先生が次に何をすればよいかが分かる形"),
+  quirk: z.string().describe("教室のメモに載せる1文、60字以内。先生が次に何をすればよいかが分かる形"),
   evidence: z.string().describe("根拠。件数と時期を具体的に"),
   confidence: z.enum(["high", "medium", "low"]),
 });
@@ -86,7 +86,7 @@ function evidenceOf(d: DeviceFact) {
 async function proposeWithAi(candidates: DeviceFact[], today: string): Promise<QuirkProposal[]> {
   if (candidates.length === 0) return [];
   const system = `あなたは県立あさひ台工業高等学校の校内ICT担当の分析係です。教室機器のトラブル記録から「機器の確認ポイント」を見つけます。
-確認ポイントとは、教室の静的カード（先生が最初に見る1行メモ）に載せられる、先生の次の行動につながる事実です。
+確認ポイントとは、教室のメモ（先生が最初に見る1行メモ）に載せられる、先生の次の行動につながる事実です。
 例：「HDMI端子が3つ。ケーブルが挿さっている番号と入力切替の番号を合わせる」「電子黒板は無線投影。右上のWi-Fiマークが消えていたらHDMIでつなぐ」「教卓側のHDMI端子がゆるい。まっすぐ抜き差し。ぐらつくならICT担当へ」
 
 # ルール

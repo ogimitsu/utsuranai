@@ -81,7 +81,7 @@ export default async function AdminPage() {
 
       <section className="space-y-2">
         <h2 className="text-lg font-semibold">確認ポイントの提案（{proposals.length}）</h2>
-        <p className="text-sm text-zinc-500">履歴から見つけた「教室の静的カードに載せる1行」。承認したものだけが先生に見えます。</p>
+        <p className="text-sm text-zinc-500">履歴から見つけた「教室のメモに載せる1行」。承認したものだけが先生に見えます。</p>
         <QuirkProposals items={proposals} hasKey={hasApiKey()} />
       </section>
 

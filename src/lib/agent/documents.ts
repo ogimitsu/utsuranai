@@ -120,20 +120,23 @@ function instruction(kind: DocKind, facts: FactPack, target: DeviceFact | null):
 ## 8. 前任者から一言（記録から言える助言を3つ。精神論は書かない）
 引継ぎファイルを読む時間がない人が、4月の最初の1週間を乗り切れるように書いてください。`;
     case "purchase":
-      return `管理職・事務室に出す「${fy + 1}年度 教室ICT機器 備品購入計画（案）」を書いてください。構成：
+      return `管理職・事務室に出す「${fy + 1}年度 教室ICT機器 備品購入計画（案）」を書いてください。
+題は「${fy + 1}年度 教室ICT機器 備品購入計画（案）」。その下に「作成日 ${facts.today}　${facts.school.name} ICT担当」。構成：
 ## 1. 要約（今年度の件数と、更新が必要な機器が何台あるか）
-## 2. 優先順位（表：優先／機器／教室／導入年／今年度の件数／主な原因／理由。件数・導入年・寿命・故障を根拠に。最大6件）
+## 2. 優先順位（表：優先／機器／教室／導入年／今年度の件数／主な原因／理由。件数・導入年・寿命・故障を根拠に。最大6件。導入3年以内で故障のない機器は、件数が多くても更新候補にせず 3. に回す）
 ## 3. 更新ではなく消耗品で済むもの（ケーブル・電池・ランプの交換で減らせるもの）
 ## 4. 見積の依頼先（業者名と対象）
 ## 5. 備考（金額は見積後に記入。授業への影響の大きさを「失った授業時間」で示す）
 金額は書かないでください。`;
     case "repair": {
       const t = target
-        ? `対象機器: ${t2(target)}。宛先は、この機器を担当する業者（事実の「業者」から選ぶ）。`
+        ? `対象機器: ${t2(target)}。宛先は、この機器を担当する業者（事実の「業者」から選ぶ）。
+この機器の今年度の記録（日付順。これ以外の記録はない）：
+${target.records.map((r) => `- ${r}`).join("\n") || "- なし"}`
         : "対象機器は事実の中から故障が疑われるものを1台選んでください。";
       return `業者に送る修理・点検の依頼文を書いてください。${t}
 構成：件名／宛先（業者名と窓口。個人名は書かない）／対象機器（種類・メーカー・機種・設置教室・導入年・保守契約の期限）／症状の経過（日付順に）／これまでに試したこと（記録の原因から分かる範囲で）／現在の状況（予備機で授業を続けているか）／お願い（点検・修理の訪問。日程は「ご都合をお知らせください」）／差出人（県立あさひ台工業高等学校 ICT担当。連絡は学校代表電話へ、番号は書かない）
-事務的で短く、A4一枚に収めてください。`;
+事務的で短く、A4一枚に収めてください。「試したこと」は記録の原因から言える範囲だけを書き、記録にない対処や他教室での作業を書かないでください。日付は上の記録のとおりに書いてください。`;
     }
   }
 }
@@ -164,12 +167,12 @@ function handoverTemplate(f: FactPack): string {
   L.push(`- 今年度のトラブル記録は ${t.incidents}件。先生が自分で直したのが ${t.self_by_teacher}件、ICT担当が動いたのが ${t.by_ict}件`);
   L.push(`- 原因は ${pairs(f.by_cause.slice(0, 3))} の順。多くは教室で直せます`);
   L.push(`- 多い時間帯は ${f.by_period[0]?.[0] ?? "-"}、多い月は ${pairs(f.by_month.slice(0, 3))}`);
-  L.push(`- 守られた授業時間（推定）${t.protected_minutes}分。先生が静的カードと手順で自分で直した分です`);
+  L.push(`- 守られた授業時間（推定）${t.protected_minutes}分。先生が教室のメモと手順で自分で直した分です`);
   L.push("");
   L.push("## 2. 教室と機器の確認ポイント");
   L.push("### 件数の多い教室");
   for (const r of f.by_room.slice(0, 6)) L.push(`- ${r.room}：${r.n}件（最多原因 ${r.top_cause}）`);
-  L.push("### 承認済みの確認ポイント（教室の静的カードに出ています）");
+  L.push("### 承認済みの確認ポイント（教室のメモに出ています）");
   for (const q of f.quirks_by_room) L.push(`- ${q.room} ${q.kind}：${q.quirk}`);
   const sug = f.devices.filter((d) => d.suggested.length > 0);
   if (sug.length) {
@@ -202,7 +205,7 @@ function handoverTemplate(f: FactPack): string {
   L.push("");
   L.push("## 8. 前任者から一言");
   const top = f.by_cause[0];
-  if (top) L.push(`- 原因の${Math.round((top[1] / Math.max(1, t.incidents)) * 100)}%は「${top[0]}」。教室の静的カードを見てもらうだけで呼ばれる回数が減ります`);
+  if (top) L.push(`- 原因の${Math.round((top[1] / Math.max(1, t.incidents)) * 100)}%は「${top[0]}」。教室のメモを見てもらうだけで呼ばれる回数が減ります`);
   L.push("- 直したら原因を1タップ。文章はいりません。それがこの文書の来年版になります");
   L.push("- 直らないときは予備機で授業を続けてもらい、チケットを見てから動けば十分です");
   return L.join("\n");
@@ -213,8 +216,11 @@ function purchaseTemplate(f: FactPack): string {
   const age = (d: DeviceFact) => fy - d.installed_year;
   const score = (d: DeviceFact) =>
     d.n + d.fault_count * 3 + (age(d) >= 7 ? 3 : age(d) >= 5 ? 1 : 0) + (d.lamp && d.lamp.ratio >= 0.85 ? 3 : 0);
+  // 候補は「理由が言える」機器だけ。新しくて故障もない機器は、件数が多くても運用で減らすものとして別掲に回す
+  const hasReason = (d: DeviceFact) =>
+    d.fault_count >= 1 || age(d) >= 5 || (d.lamp ? d.lamp.ratio >= 0.85 : false) || d.n >= 8;
   const ranked = f.devices
-    .filter((d) => d.status === "active" && d.n > 0)
+    .filter((d) => d.status === "active" && d.n > 0 && hasReason(d))
     .sort((a, b) => score(b) - score(a))
     .slice(0, 6);
   const cableHeavy = f.devices.filter((d) => d.by_cause[0]?.[0] === "ケーブル・アダプタ" && d.by_cause[0][1] >= 3);
@@ -232,8 +238,8 @@ function purchaseTemplate(f: FactPack): string {
   L.push("|---|---|---|---|---|---|---|");
   ranked.forEach((d, i) => {
     const why = [
-      d.fault_count >= 2 ? `機器故障${d.fault_count}件` : "",
-      age(d) >= 7 ? `導入${age(d)}年` : "",
+      d.fault_count >= 1 ? `機器故障${d.fault_count}件` : "",
+      age(d) >= 5 ? `導入${age(d)}年` : "",
       d.lamp && d.lamp.ratio >= 0.85 ? `ランプ${Math.round(d.lamp.ratio * 100)}%` : "",
       d.n >= 8 ? "件数が多い" : "",
     ]
@@ -262,7 +268,17 @@ function repairTemplate(f: FactPack, d: DeviceFact | null): string {
   const tried = d.by_cause
     .map(([c]) => c)
     .filter((c) => c !== "機器故障" && c !== "わからない")
-    .map((c) => ({ 入力切替: "入力切替の確認", "ケーブル・アダプタ": "ケーブルの挿し直し・交換", "電池・リモコン": "リモコンの電池交換", 端末の設定: "教卓PCの出力先設定の確認", 電源: "主電源の確認" })[c] ?? c);
+    .map(
+      (c) =>
+        ({
+          入力切替: "入力切替の確認",
+          "ケーブル・アダプタ": "ケーブルの挿し直し・交換",
+          "電池・リモコン": "リモコンの電池交換",
+          端末の設定: "教卓PCの出力先設定の確認",
+          電源: "主電源の確認",
+          "Wi-Fi・無線": "無線投影のつなぎ直し。切れたときはHDMIで直結して授業を続行",
+        })[c] ?? c,
+    );
   const spareNow = f.open_tickets.some((o) => o.room === d.room && o.spare);
   const L: string[] = [];
   L.push(`# 修理・点検のお願い（${d.kind} ${d.model}）`);
