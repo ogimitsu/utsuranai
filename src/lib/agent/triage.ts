@@ -100,6 +100,7 @@ function buildSystemPrompt(ctx: RoomContext, symptom: Symptom, today: string, qu
 - 下の情報にないことは推測しない。わからなければ kind=escalate で予備機を案内し、ICT担当に引き継ぐ
 - 専門語を避け、やさしい言葉で。敬体で短く
 - 既知の確認ポイントに当てはまるなら、それを最初に試す
+- 会話にすでにある質問は二度と聞かない。答えが「いいえ」「わからない」でも、次は手順を示す
 
 # 今日
 ${today}
@@ -162,10 +163,11 @@ export async function triage(input: {
   const questionsAsked = input.messages.filter((m) => m.role === "assistant").length;
   const system = buildSystemPrompt(ctx, input.symptom, input.today, questionsAsked);
 
-  const messages =
-    input.messages.length === 0
-      ? [{ role: "user" as const, content: `症状：${SYMPTOM_LABEL[input.symptom]}。どうすればいいですか。` }]
-      : input.messages.map((m) => ({ role: m.role, content: m.text }));
+  // 会話は必ず先生の「症状」から始める（履歴だけを渡すと assistant 発言が先頭になり、同じ質問を繰り返しやすい）
+  const messages = [
+    { role: "user" as const, content: `症状：${SYMPTOM_LABEL[input.symptom]}。どうすればいいですか。` },
+    ...input.messages.map((m) => ({ role: m.role, content: m.text })),
+  ];
 
   try {
     const res = await getClient().messages.create({
