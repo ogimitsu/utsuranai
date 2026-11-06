@@ -17,8 +17,8 @@ for p in (BUILD / "audio", BUILD / "slides", BUILD / "seg", OUT):
 FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
 CHROME = os.environ.get("CHROME", r"C:\Program Files\Google\Chrome\Application\chrome.exe")
 W, H = 1920, 1080
-PAD_SEG = 0.35   # 文の後の間（秒）
-PAD_SCENE = 0.6  # 場面の後の間（秒）
+PAD_SEG = 0.3   # 文の後の間（秒）
+PAD_SCENE = 0.5  # 場面の後の間（秒）
 DRY = "--dry" in sys.argv
 
 script = json.loads((ROOT / "script.json").read_text(encoding="utf-8"))
@@ -59,6 +59,8 @@ def frame_list(name: str) -> list[str]:
 
 
 def img_uri(name: str) -> str:
+    if name == "none":
+        return ""
     p = FRAMES / f"{name}.png"
     if not p.exists():
         raise FileNotFoundError(p)
@@ -96,10 +98,19 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#f6f6f3;color:#1
 .title .ev{font-size:30px;color:#71717a;margin-top:60px}
 .cover{position:absolute;right:120px;top:170px;width:540px;border-radius:24px;box-shadow:0 20px 40px rgba(0,0,0,.18);border:1px solid #e4e4e7;background:#fff}
 .title.center .name{font-size:150px}
+.why{position:absolute;left:64px;top:120px;width:1792px}
+.why h1{font-size:68px;line-height:1.3;font-weight:700}
+.cards{display:flex;gap:28px;margin-top:56px}
+.card{flex:1;background:#fff;border:1px solid #e4e4e7;border-radius:24px;padding:44px 44px;min-height:470px;transition:none}
+.card b{display:block;font-size:44px;color:#059669;margin-bottom:24px}
+.card span{font-size:40px;line-height:1.55;color:#27272a}
+.card.dim{opacity:.18}
+.why .sum{margin-top:44px;font-size:50px;font-weight:700;color:#18181b}
+.why .sum.dim{opacity:0}
 """
 
 
-def slide_html(layout: str, heading: str, points: list[str], frame: str, caption: str) -> str:
+def slide_html(layout: str, heading: str, points: list[str], frame: str, caption: str, reveal: int | None = None) -> str:
     esc = html.escape
     pts = "".join(f"<li>{esc(p)}</li>" for p in points)
     brand = '<div class="brand"><b>映らないノート</b>　教室ICTサポートエージェント</div>'
@@ -115,6 +126,16 @@ def slide_html(layout: str, heading: str, points: list[str], frame: str, caption
     elif layout == "qr-phone":
         body = f'''{brand}<div class="left" style="top:120px"><h1>{esc(heading)}</h1><ul>{pts}</ul></div>
         <img class="qr" src="{img_uri("qr-card")}"><div class="phone"><img src="{img_uri(frame)}"></div>'''
+        brand = ""
+    elif layout == "why":
+        cards = []
+        for i, p in enumerate(points[:3]):
+            who, what = (p.split("|", 1) + [""])[:2]
+            dim = " dim" if reveal is not None and i >= reveal else ""
+            cards.append(f'<div class="card{dim}"><b>{esc(who)}</b><span>{esc(what)}</span></div>')
+        summ = points[3] if len(points) > 3 else ""
+        sdim = " dim" if reveal is not None and reveal < 4 else ""
+        body = f'{brand}<div class="why"><h1>{esc(heading)}</h1><div class="cards">{"".join(cards)}</div><div class="sum{sdim}">{esc(summ)}</div></div>'
         brand = ""
     elif layout in ("window", "crop"):
         tall = "tall" if layout == "window" else ""
@@ -167,7 +188,7 @@ for scene in script["scenes"]:
             lines = []
             for fi, fr in enumerate(frames):
                 png = BUILD / "slides" / f"{n:02d}-{fi:02d}.png"
-                render(slide_html(layout, scene["heading"], scene.get("points", []), fr, text), png)
+                render(slide_html(layout, seg.get("heading", scene["heading"]), seg.get("points", scene.get("points", [])), fr, text, seg.get("reveal")), png)
                 lines.append(f"file '{png.as_posix()}'\nduration {per:.3f}")
             lines.append(f"file '{png.as_posix()}'")
             (seg_dir / "list.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")

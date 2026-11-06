@@ -1,111 +1,307 @@
 {
   "voice": "ja-JP-KeitaNeural",
-  "rate": "+0%",
+  "rate": "+4%",
   "scenes": [
     {
       "id": "s1",
       "layout": "title",
       "heading": "映らないノート",
-      "points": ["教室ICTサポートエージェント", "Built with Claude: Japan 2026"],
+      "points": [
+        "教室ICTサポートエージェント",
+        "Built with Claude: Japan 2026"
+      ],
       "segments": [
-        { "text": "県立高校で、ICT担当をしています。", "frames": ["qr-card"] },
-        { "text": "授業中に「映らない」と呼ばれるのは、月に3回ほど。直すのは2分。", "frames": ["qr-card"] },
-        { "text": "問題は、その2分が、どこにも残らないことです。", "frames": ["qr-card"] }
+        {
+          "text": "県立高校で、ICT担当をやっています。",
+          "frames": [
+            "qr-card"
+          ]
+        },
+        {
+          "text": "授業が始まって、プロジェクターが映らない。よくあるやつです。",
+          "frames": [
+            "qr-card"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s1b",
+      "layout": "why",
+      "heading": "「映らない」の10分は、誰の時間か",
+      "points": [
+        "映らない先生|ケーブルを抜き差しして、5分、10分悩む",
+        "駆けつけるICT担当|自分の授業を止めて、別の教室へ走る",
+        "生徒|どっちの教室も、ただ待っている",
+        "直すのは2分。その2分は、どこにも残らない"
+      ],
+      "segments": [
+        {
+          "text": "先生はケーブルを抜き差ししながら、5分、10分悩む。",
+          "frames": [
+            "none"
+          ],
+          "reveal": 1
+        },
+        {
+          "text": "直らないと、ICT担当の私が、自分の授業を止めて駆けつける。",
+          "frames": [
+            "none"
+          ],
+          "reveal": 2
+        },
+        {
+          "text": "その間、どっちの教室の生徒も、ただ待ってるだけなんです。",
+          "frames": [
+            "none"
+          ],
+          "reveal": 3
+        },
+        {
+          "text": "で、直すのは2分。でもその2分は残らないから、来年の担当がまた悩む。",
+          "frames": [
+            "none"
+          ],
+          "reveal": 4
+        }
       ]
     },
     {
       "id": "s2",
       "layout": "qr-phone",
       "heading": "教卓のQRを読む",
-      "points": ["その教室の機器を知っているページ", "電気科2年：今年度8回"],
+      "points": [
+        "その教室の機器を知っているページ",
+        "電気科2年：今年度8回"
+      ],
       "segments": [
-        { "text": "教卓のQRを読むと、その教室の機器を知っているページが開きます。", "frames": ["room-e2-top"] },
-        { "text": "ここは電気科2年。ケーブルの端子が傷んで、今年度8回止まった教室です。", "frames": ["room-e2-top"] }
+        {
+          "text": "教卓のQRを読むと、その教室の機器を知ってるページが開きます。",
+          "frames": [
+            "room-e2-top"
+          ]
+        },
+        {
+          "text": "ここは電気科2年。ケーブルの端子が傷んで、今年度もう8回止まってます。",
+          "frames": [
+            "room-e2-top"
+          ]
+        }
       ]
     },
     {
       "id": "s3",
       "layout": "phone",
       "heading": "症状を1つ押す",
-      "points": ["質問は多くて2つ、はい／いいえで", "手順は3行まで、場所つき"],
+      "points": [
+        "聞かれるのは多くて2つ、はい／いいえで",
+        "手順は3行まで、場所つき"
+      ],
       "segments": [
-        { "text": "症状を1つ押す。質問は多くて2つ。はい、いいえで答えられる形です。", "frames": ["room-e2-question"] },
-        { "text": "手順は3行まで。リモコンやケーブルの場所まで言います。", "frames": ["room-e2-steps"] }
+        {
+          "text": "症状を1つ押す。聞かれるのは多くて2つ。はい、いいえで答えるだけ。",
+          "frames": [
+            "room-e2-question"
+          ]
+        },
+        {
+          "text": "手順は3行まで。リモコンはどこ、ケーブルはどこ、まで言ってくれます。",
+          "frames": [
+            "room-e2-steps"
+          ]
+        }
       ]
     },
     {
       "id": "s4",
       "layout": "phone",
       "heading": "直ったら、原因を1タップ",
-      "points": ["文章は書かない", "ICT担当は呼ばれていない"],
+      "points": [
+        "文章は書かない",
+        "ICT担当は呼ばれていない"
+      ],
       "segments": [
-        { "text": "直ったら、原因を1回タップ。", "frames": ["room-e2-cause"] },
-        { "text": "これで記録は終わりです。文章は書きません。ICT担当は、呼ばれていません。", "frames": ["room-e2-done"] }
+        {
+          "text": "直ったら、原因を1回タップ。",
+          "frames": [
+            "room-e2-cause"
+          ]
+        },
+        {
+          "text": "はい、記録おしまい。文章は書きません。私は呼ばれてません。",
+          "frames": [
+            "room-e2-done"
+          ]
+        }
       ]
     },
     {
       "id": "s5",
       "layout": "phone",
       "heading": "直らなければ",
-      "points": ["予備機の場所と、状況つきの引き継ぎ", "写真1枚で次の一手。写真は保存しない"],
+      "points": [
+        "予備機の場所と、状況つきの引き継ぎ",
+        "写真1枚で次の一手。写真は保存しない"
+      ],
       "segments": [
-        { "text": "直らなければ、予備機の場所が出て、ICT担当に状況つきで届きます。", "frames": ["room-e2-escalate"] },
-        { "text": "写真を1枚送ると、ランプやケーブルの様子から、次の一手を1つだけ返します。写真は保存しません。", "frames": ["room-e2-escalate"] },
-        { "text": "先生は、予備機で授業を続けます。", "frames": ["room-e2-spare-done"] }
+        {
+          "text": "直らないときは、予備機の場所が出て、状況つきで私に届きます。",
+          "frames": [
+            "room-e2-escalate"
+          ]
+        },
+        {
+          "text": "写真を1枚送ると、次の一手を1つだけ返してくれます。写真は保存しません。",
+          "frames": [
+            "room-e2-escalate"
+          ]
+        }
       ]
     },
     {
       "id": "s6",
       "layout": "window",
       "heading": "ICT担当の画面",
-      "points": ["未対応チケット・原因の内訳", "繰り返す教室・ランプ寿命"],
+      "points": [
+        "未対応チケット・原因の内訳",
+        "よく止まる教室・ランプ寿命"
+      ],
       "segments": [
-        { "text": "ICT担当側では、こう見えます。未対応のチケット、原因の内訳、繰り返す教室。", "frames": ["admin-top"] },
-        { "text": "さっきの電気科2年が、もう届いています。", "frames": ["admin-top"] }
+        {
+          "text": "ICT担当側は、こんな感じ。未対応のチケット、原因の内訳、よく止まる教室。",
+          "frames": [
+            "admin-top"
+          ]
+        },
+        {
+          "text": "さっきの電気科2年、もう届いてます。",
+          "frames": [
+            "admin-top"
+          ]
+        }
       ]
     },
     {
       "id": "s7",
       "layout": "crop",
       "heading": "確認ポイントの提案",
-      "points": ["履歴から Sonnet が提案", "承認したものだけが先生に見える"],
+      "points": [
+        "履歴から Sonnet が提案",
+        "承認したものだけが先生に見える"
+      ],
       "segments": [
-        { "text": "履歴から、「この教室で毎回確認すること」を提案してきます。", "frames": ["admin-proposals"] },
-        { "text": "人が承認したものだけが、先生の画面に出ます。", "frames": ["admin-proposals-approved"] },
-        { "text": "根拠の弱い提案は、ここで止めます。", "frames": ["admin-proposals-rejected"] },
-        { "text": "承認した1行は、その教室のメモに載ります。", "frames": ["room-m3-top"], "layout": "phone" }
+        {
+          "text": "履歴から、「この教室で毎回見ておくこと」を提案してきます。",
+          "frames": [
+            "admin-proposals"
+          ]
+        },
+        {
+          "text": "承認したものだけが、先生の画面に出る。",
+          "frames": [
+            "admin-proposals-approved"
+          ]
+        },
+        {
+          "text": "根拠が弱いやつは、ここで止めます。",
+          "frames": [
+            "admin-proposals-rejected"
+          ]
+        },
+        {
+          "text": "承認した1行は、その教室のメモに載ります。",
+          "frames": [
+            "room-m3-top"
+          ],
+          "layout": "phone"
+        }
       ]
     },
     {
       "id": "s8",
       "layout": "window",
       "heading": "年度末。引継ぎを押す",
-      "points": ["1年分の記録が、次の担当向けの文書に", "数字はコードが集計、AIは言葉にするだけ"],
+      "points": [
+        "1年分の記録が、次の担当向けの文書に",
+        "数字はコードが集計、AIは言葉にするだけ"
+      ],
       "segments": [
-        { "text": "年度末。日付を3月31日にして、「引継ぎ」を押すと、", "frames": ["docs-top"] },
-        { "text": "1年分の記録、確認ポイント、業者、予備機、行事が、次の担当向けの文書になります。", "frames": ["@stream"] },
-        { "text": "さっきタップした電気科2年が、ここでは「今年度最多の10件」。原因と確認ポイントごと、次の担当に渡ります。", "frames": ["docs-handover-highlight"] }
+        {
+          "text": "で、年度末。日付を3月31日にして、「引継ぎ」を押すと、",
+          "frames": [
+            "docs-top"
+          ]
+        },
+        {
+          "text": "1年分の記録、確認ポイント、業者、予備機、行事が、次の担当向けの文書になります。",
+          "frames": [
+            "@stream"
+          ]
+        },
+        {
+          "text": "さっきの電気科2年が、ここでは「今年度最多の10件」。確認ポイントごと、次の人に渡ります。",
+          "frames": [
+            "docs-handover-highlight"
+          ]
+        }
       ]
     },
     {
       "id": "s9",
       "layout": "window",
       "heading": "購入計画も、同じ記録から",
-      "points": ["優先順位と理由はコードの集計値どおり", "引継ぎファイルは、もう書かない"],
+      "points": [
+        "優先順位と理由はコードの集計値どおり",
+        "引継ぎファイルは、もう書かない"
+      ],
       "segments": [
-        { "text": "購入計画も、同じ記録から。数字はコードで集計し、AIは言葉にするだけです。", "frames": ["docs-purchase-table"] },
-        { "text": "引継ぎファイルは、もう書きません。", "frames": ["docs-purchase-table"] }
+        {
+          "text": "購入計画も、同じ記録から。数字はコードで集計して、AIは言葉にするだけ。",
+          "frames": [
+            "docs-purchase-table"
+          ]
+        },
+        {
+          "text": "引継ぎファイルを書く夜は、もうありません。",
+          "frames": [
+            "docs-purchase-table"
+          ]
+        }
       ]
     },
     {
       "id": "s10",
       "layout": "window",
       "heading": "人が読めるJSON。AIが止まっても動く",
-      "points": ["台帳・手順・履歴はリポジトリ内のJSON", "生徒の個人情報は持たない"],
+      "points": [
+        "台帳・手順・履歴はリポジトリ内のJSON",
+        "生徒の個人情報は持たない"
+      ],
       "segments": [
-        { "text": "台帳も手順も履歴も、人が読めるJSONです。AIが止まっても、手順は出ます。", "frames": ["repo"] },
-        { "text": "生徒の個人情報は持ちません。だから、4月から本物の学校で使えます。", "frames": ["repo"] },
-        { "text": "映らないノート。", "frames": ["qr-card"], "layout": "title" }
+        {
+          "text": "台帳も手順も履歴も、人が読めるJSON。AIが止まっても、手順は出ます。",
+          "frames": [
+            "repo"
+          ]
+        },
+        {
+          "text": "生徒の個人情報は持たない。だから、4月から本物の学校で使えます。",
+          "frames": [
+            "repo"
+          ]
+        },
+        {
+          "text": "映らないノート。悩む10分を、生徒に返します。",
+          "frames": [
+            "qr-card"
+          ],
+          "layout": "title",
+          "heading": "映らないノート",
+          "points": [
+            "悩む10分を、生徒に返す",
+            "Built with Claude: Japan 2026"
+          ]
+        }
       ]
     }
   ]
