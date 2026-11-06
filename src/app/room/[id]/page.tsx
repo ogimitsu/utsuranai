@@ -8,7 +8,7 @@ import { hasApiKey } from "@/lib/llm/client";
 
 /**
  * 教室ページ。教卓のQRコードからここに来る。
- * 上：教室のメモ（AIなしで常に出る）／下：一次対応フロー
+ * 上：一次対応フロー／下：教室のメモ（AIなしで常に出る）
  */
 export default async function RoomPage(props: PageProps<"/room/[id]">) {
   const { id } = await props.params;
@@ -20,38 +20,54 @@ export default async function RoomPage(props: PageProps<"/room/[id]">) {
   const quirks = ctx.devices.flatMap((d) => d.quirks.map((q) => ({ device: DEVICE_KIND_LABEL[d.kind], q })));
 
   return (
-    <main className="mx-auto w-full max-w-md space-y-6 px-4 py-5">
-      <header className="space-y-1">
-        <p className="text-sm text-zinc-500">
-          {ctx.room.building} {ctx.room.floor}階
+    <main className="mx-auto w-full max-w-md space-y-6 px-4 pb-12 pt-5">
+      <header>
+        <p className="eyebrow">
+          {ctx.room.building}　{ctx.room.floor}階
         </p>
-        <h1 className="text-3xl font-bold">{ctx.room.name}</h1>
+        <h1 className="mt-1 text-[32px] font-bold leading-tight tracking-tight">{ctx.room.name}</h1>
       </header>
 
       <Triage roomId={ctx.room.id} mainDeviceId={main?.id ?? null} photoEnabled={hasApiKey()} />
 
-      <section className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4">
-        <h2 className="mb-2 text-sm font-semibold text-zinc-500">この教室のメモ</h2>
-        <ul className="space-y-1.5 text-[15px] leading-relaxed">
+      <section className="card p-4" aria-labelledby="memo">
+        <h2 id="memo" className="eyebrow">
+          この教室のメモ
+        </h2>
+        <ul className="dot-list mt-3 space-y-2 text-[16px] leading-relaxed">
           {ctx.room.notes_static.map((n, i) => (
-            <li key={i}>・{n}</li>
+            <li key={i}>{n}</li>
           ))}
           {quirks.map((x, i) => (
             <li key={`q${i}`}>
-              ・<span className="text-zinc-500">{x.device}：</span>
+              <span className="text-muted">{x.device}：</span>
               {x.q}
             </li>
           ))}
-          {main?.cable_location && <li>・ケーブル：{main.cable_location}</li>}
-          {main?.remote_location && <li>・リモコン：{main.remote_location}</li>}
         </ul>
-        <details className="mt-3 text-sm text-zinc-600">
-          <summary className="cursor-pointer">機器一覧</summary>
+        {(main?.cable_location || main?.remote_location) && (
+          <div className="mt-3 flex flex-wrap gap-2">
+            {main?.cable_location && (
+              <span className="chip">
+                <span className="text-muted">ケーブル：</span>
+                {main.cable_location}
+              </span>
+            )}
+            {main?.remote_location && (
+              <span className="chip">
+                <span className="text-muted">リモコン：</span>
+                {main.remote_location}
+              </span>
+            )}
+          </div>
+        )}
+        <details className="mt-3 text-sm text-ink-2">
+          <summary className="cursor-pointer rounded-md py-1 font-semibold">機器一覧</summary>
           <ul className="mt-2 space-y-1">
             {ctx.devices.map((d) => (
               <li key={d.id}>
                 {DEVICE_KIND_LABEL[d.kind]}：{d.maker} {d.model}（{d.installed_year}年）
-                {d.inputs.length > 0 && <span className="text-zinc-400"> / {d.inputs.join("・")}</span>}
+                {d.inputs.length > 0 && <span className="text-muted"> / {d.inputs.join("・")}</span>}
               </li>
             ))}
           </ul>
@@ -59,21 +75,26 @@ export default async function RoomPage(props: PageProps<"/room/[id]">) {
       </section>
 
       {ctx.recentIncidents.length > 0 && (
-        <section className="text-sm text-zinc-500">
-          <h2 className="mb-1 font-semibold">最近この教室で</h2>
-          <ul className="space-y-0.5">
+        <section aria-labelledby="recent">
+          <h2 id="recent" className="eyebrow">
+            最近この教室で
+          </h2>
+          <ul className="mt-2 space-y-1.5 text-sm text-ink-2">
             {ctx.recentIncidents.slice(0, 3).map((i) => (
-              <li key={i.id}>
-                {i.datetime.slice(5, 10).replace("-", "/")}　{SYMPTOM_LABEL[i.symptom]} → {CAUSE_LABEL[i.cause_tag]}
-                {i.note && <span className="block pl-[3.5em] text-zinc-400">{i.note}</span>}
+              <li key={i.id} className="flex gap-3">
+                <span className="w-12 shrink-0 tabular-nums text-muted">{i.datetime.slice(5, 10).replace("-", "/")}</span>
+                <span>
+                  {SYMPTOM_LABEL[i.symptom]} → {CAUSE_LABEL[i.cause_tag]}
+                  {i.note && <span className="block text-muted">{i.note}</span>}
+                </span>
               </li>
             ))}
           </ul>
         </section>
       )}
 
-      <p className="text-center text-xs text-zinc-400">
-        <Link href="/" className="underline">
+      <p className="text-center text-sm">
+        <Link href="/" className="link">
           教室一覧
         </Link>
       </p>

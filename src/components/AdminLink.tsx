@@ -8,7 +8,7 @@ export function AdminLink() {
   const pathname = usePathname();
   if (pathname.startsWith("/room/")) return null;
   return (
-    <Link href="/admin" className="text-sm text-zinc-500 underline">
+    <Link href="/admin" className="link text-sm">
       ICT担当のページ
     </Link>
   );

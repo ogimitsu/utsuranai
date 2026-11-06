@@ -49,25 +49,25 @@ export function QuirkProposals({ items, hasKey }: { items: ProposalItem[]; hasKe
   return (
     <div className="space-y-3">
       {items.length === 0 ? (
-        <p className="text-sm text-zinc-500">未承認の提案はありません。</p>
+        <p className="card p-4 text-sm text-muted">未承認の提案はありません。</p>
       ) : (
-        <ul className="divide-y divide-zinc-200 rounded-2xl border border-zinc-200 bg-white">
+        <ul className="card divide-y divide-line">
           {items.map((it) => {
             const key = `${it.device_id}:${it.text}`;
             return (
               <li key={key} className="flex flex-wrap items-center justify-between gap-3 p-4">
                 <div className="min-w-0 flex-1">
-                  <p className="text-sm text-zinc-500">
+                  <p className="eyebrow">
                     {it.room}　{it.kind}
                   </p>
-                  <p className="font-medium">{it.text}</p>
+                  <p className="mt-1 font-semibold">{it.text}</p>
                 </div>
                 <div className="flex shrink-0 gap-2">
                   <button
                     type="button"
                     disabled={busy === key}
                     onClick={() => decide(it, "approve")}
-                    className="rounded-xl bg-zinc-900 px-3 py-2 text-sm font-semibold text-white disabled:opacity-50"
+                    className="btn btn-primary btn-sm"
                   >
                     承認して教室に出す
                   </button>
@@ -75,7 +75,7 @@ export function QuirkProposals({ items, hasKey }: { items: ProposalItem[]; hasKe
                     type="button"
                     disabled={busy === key}
                     onClick={() => decide(it, "reject")}
-                    className="rounded-xl border border-zinc-300 bg-white px-3 py-2 text-sm font-semibold disabled:opacity-50"
+                    className="btn btn-soft btn-sm"
                   >
                     却下
                   </button>
@@ -86,15 +86,10 @@ export function QuirkProposals({ items, hasKey }: { items: ProposalItem[]; hasKe
         </ul>
       )}
       <div className="flex flex-wrap items-center gap-3 text-sm">
-        <button
-          type="button"
-          disabled={running}
-          onClick={run}
-          className="rounded-xl border border-zinc-300 bg-white px-3 py-2 font-semibold disabled:opacity-50"
-        >
+        <button type="button" disabled={running} onClick={run} className="btn btn-soft btn-sm">
           {running ? "履歴を読んでいます…" : "履歴から提案を作る"}
         </button>
-        <span className="text-zinc-500">
+        <span className="text-ink-2" role="status" aria-live="polite">
           {msg ?? (hasKey ? "Sonnet が今年度の記録から、教室のメモに載せる1行を提案します" : "APIキーが無いため、集計ルールで提案します")}
         </span>
       </div>

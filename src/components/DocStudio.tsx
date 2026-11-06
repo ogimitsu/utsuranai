@@ -98,29 +98,31 @@ export function DocStudio({
 
   return (
     <div className="space-y-5">
-      <div className="grid gap-2 sm:grid-cols-3">
-        {kinds.map((x) => (
-          <button
-            key={x.kind}
-            type="button"
-            onClick={() => setKind(x.kind)}
-            className={`rounded-2xl border p-4 text-left ${
-              kind === x.kind ? "border-zinc-900 bg-zinc-900 text-white" : "border-zinc-200 bg-white hover:bg-zinc-50"
-            }`}
-          >
-            <p className="font-semibold">{x.label}</p>
-            <p className={`mt-1 text-xs ${kind === x.kind ? "text-zinc-300" : "text-zinc-500"}`}>{x.desc}</p>
-          </button>
-        ))}
+      <div className="grid gap-2.5 sm:grid-cols-3" role="group" aria-label="書類の種類">
+        {kinds.map((x) => {
+          const on = kind === x.kind;
+          return (
+            <button
+              key={x.kind}
+              type="button"
+              aria-pressed={on}
+              onClick={() => setKind(x.kind)}
+              className={`card p-4 text-left transition-colors ${on ? "border-ink bg-ink text-white" : "hover:border-ink"}`}
+            >
+              <p className="font-bold">{x.label}</p>
+              <p className={`mt-1 text-xs leading-relaxed ${on ? "text-stone-300" : "text-muted"}`}>{x.desc}</p>
+            </button>
+          );
+        })}
       </div>
 
       {kind === "repair" && repairTargets.length > 0 && (
         <label className="flex flex-wrap items-center gap-2 text-sm">
-          <span className="text-zinc-500">対象の機器</span>
+          <span className="text-muted">対象の機器</span>
           <select
             value={deviceId}
             onChange={(e) => setDeviceId(e.target.value)}
-            className="rounded-md border border-zinc-300 bg-white px-2 py-1"
+            className="min-h-10 rounded-lg border border-line-strong bg-surface px-2.5"
           >
             {repairTargets.map((t) => (
               <option key={t.id} value={t.id}>
@@ -133,15 +135,15 @@ export function DocStudio({
 
       <div className="flex flex-wrap items-center gap-3">
         {busy ? (
-          <button type="button" onClick={stop} className="rounded-xl border border-zinc-300 bg-white px-4 py-2.5 font-semibold">
+          <button type="button" onClick={stop} className="btn btn-soft">
             止める
           </button>
         ) : (
-          <button type="button" onClick={generate} className="rounded-xl bg-zinc-900 px-4 py-2.5 font-semibold text-white">
+          <button type="button" onClick={generate} className="btn btn-primary">
             {text ? "作り直す" : "下書きを作る"}
           </button>
         )}
-        <span className="text-sm text-zinc-500">
+        <span className="text-sm text-ink-2" role="status" aria-live="polite">
           {busy
             ? `${today} 時点の記録から書いています… ${elapsed}秒`
             : hasKey
@@ -152,21 +154,21 @@ export function DocStudio({
 
       {text && (
         <section className="space-y-3">
-          <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
-            <span className="rounded-full border border-zinc-300 px-2 py-0.5">
+          <div className="flex flex-wrap items-center gap-3 text-sm">
+            <span className={`chip ${source === "ai" ? "chip-go" : ""}`}>
               {source === "ai" ? "AI生成（Sonnet）" : source === "template" ? "手順集モード（AIなし）" : "生成中"}
             </span>
-            <button type="button" onClick={copy} className="underline">
+            <button type="button" onClick={copy} className="link">
               {copied ? "コピーしました" : "コピー"}
             </button>
-            <button type="button" onClick={download} className="underline">
+            <button type="button" onClick={download} className="link">
               .md で保存
             </button>
-            <span>下書きです。送る前に目を通してください。</span>
+            <span className="text-muted">下書きです。送る前に目を通してください。</span>
           </div>
-          <article className="rounded-2xl border border-zinc-200 bg-white p-5">
+          <article className="card p-6 sm:p-8">
             <Markdown text={text} />
-            {busy && <span className="ml-1 inline-block h-4 w-2 animate-pulse bg-zinc-400 align-middle" />}
+            {busy && <span className="ml-1 inline-block h-4 w-2 animate-pulse bg-stone-400 align-middle" aria-hidden="true" />}
           </article>
         </section>
       )}

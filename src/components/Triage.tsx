@@ -33,6 +33,15 @@ const MAX_ROUNDS = 4;
 // 経過時間の計測（イベント内でのみ呼ぶ。描画中には使わない）
 const nowMs = () => Date.now();
 
+function CheckIcon() {
+  return (
+    <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" className="shrink-0">
+      <circle cx="12" cy="12" r="11" fill="#047857" />
+      <path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export function Triage({
   roomId,
   mainDeviceId,
@@ -168,17 +177,17 @@ export function Triage({
 
   if (phase === "symptom") {
     return (
-      <section className="space-y-3">
-        <h2 className="text-lg font-semibold">どうなっていますか？</h2>
+      <section className="space-y-3" aria-labelledby="q-symptom">
+        <h2 id="q-symptom" className="text-xl font-bold">
+          どうなっていますか？
+        </h2>
         <div className="grid grid-cols-2 gap-3">
           {SYMPTOM_ORDER.map((s, i) => (
             <button
               key={s}
               type="button"
               onClick={() => pickSymptom(s)}
-              className={`rounded-2xl bg-zinc-900 px-4 font-semibold text-white active:scale-[0.98] ${
-                i === 0 ? "col-span-2 py-6 text-2xl" : "py-5 text-lg"
-              }`}
+              className={`btn btn-primary ${i === 0 ? "col-span-2 min-h-20 text-2xl" : "min-h-16 text-lg"}`}
             >
               {SYMPTOM_LABEL[s]}
             </button>
@@ -190,7 +199,12 @@ export function Triage({
 
   if (phase === "thinking") {
     return (
-      <section className="rounded-2xl border border-zinc-200 p-5 text-zinc-600">
+      <section className="card flex items-center gap-3 p-5 text-ink-2" role="status" aria-live="polite">
+        <span aria-hidden="true" className="flex gap-1">
+          <span className="h-2 w-2 animate-pulse rounded-full bg-accent" />
+          <span className="h-2 w-2 animate-pulse rounded-full bg-accent [animation-delay:150ms]" />
+          <span className="h-2 w-2 animate-pulse rounded-full bg-accent [animation-delay:300ms]" />
+        </span>
         確認しています…
       </section>
     );
@@ -198,13 +212,12 @@ export function Triage({
 
   if (phase === "done") {
     return (
-      <section className="space-y-4 rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-        <p className="text-lg font-semibold text-emerald-900">{doneText}</p>
-        <button
-          type="button"
-          onClick={() => setPhase("symptom")}
-          className="rounded-xl border border-zinc-300 bg-white px-4 py-2 text-sm"
-        >
+      <section className="card space-y-4 border-go/30 bg-go-soft p-5" role="status" aria-live="polite">
+        <div className="flex items-start gap-3">
+          <CheckIcon />
+          <p className="text-lg font-bold text-emerald-900">{doneText}</p>
+        </div>
+        <button type="button" onClick={() => setPhase("symptom")} className="btn btn-soft btn-sm">
           最初に戻る
         </button>
       </section>
@@ -213,32 +226,33 @@ export function Triage({
 
   if (phase === "cause" && reply) {
     return (
-      <section className="space-y-3">
-        <h2 className="text-lg font-semibold">直ってよかった。原因はどれでしたか？</h2>
-        <p className="text-sm text-zinc-500">1タップで記録されます。次の担当への引継ぎになります。</p>
+      <section className="space-y-3" aria-labelledby="q-cause">
+        <h2 id="q-cause" className="text-xl font-bold">
+          直ってよかった。原因はどれでしたか？
+        </h2>
+        <p className="text-sm text-ink-2">1タップで記録されます。次の担当への引継ぎになります。</p>
         <button
           type="button"
           onClick={() => record({ cause_tag: "unknown", resolved: "self" })}
-          className="w-full rounded-2xl border-2 border-zinc-300 bg-white px-4 py-4 text-base font-semibold text-zinc-700"
+          className="btn btn-outline min-h-14 w-full text-base"
         >
           わからない・急いでいる（そのまま授業に戻る）
         </button>
         <div className="grid grid-cols-2 gap-3">
-          {CAUSE_ORDER.map((c) => (
-            <button
-              key={c}
-              type="button"
-              onClick={() => record({ cause_tag: c, resolved: "self" })}
-              className={`rounded-2xl px-4 py-4 text-base font-semibold active:scale-[0.98] ${
-                reply.suspected_cause === c
-                  ? "bg-emerald-600 text-white"
-                  : "border border-zinc-300 bg-white text-zinc-900"
-              }`}
-            >
-              {CAUSE_LABEL[c]}
-              {reply.suspected_cause === c && <span className="block text-xs font-normal">たぶんこれ</span>}
-            </button>
-          ))}
+          {CAUSE_ORDER.map((c) => {
+            const likely = reply.suspected_cause === c;
+            return (
+              <button
+                key={c}
+                type="button"
+                onClick={() => record({ cause_tag: c, resolved: "self" })}
+                className={`btn min-h-16 flex-col text-base ${likely ? "btn-go" : "btn-soft"}`}
+              >
+                {CAUSE_LABEL[c]}
+                {likely && <span className="text-xs font-semibold opacity-90">たぶんこれ</span>}
+              </button>
+            );
+          })}
         </div>
       </section>
     );
@@ -250,19 +264,23 @@ export function Triage({
   return (
     <section className="space-y-4">
       <div className="flex items-center justify-between">
-        <span className="rounded-full bg-zinc-100 px-3 py-1 text-sm">{SYMPTOM_LABEL[symptom]}</span>
-        <span className="text-xs text-zinc-400">{reply.source === "ai" ? "AI" : "手順集"}</span>
+        <span className="chip">{SYMPTOM_LABEL[symptom]}</span>
+        <span className="text-xs font-semibold text-muted">{reply.source === "ai" ? "AIの案内" : "手順集の案内"}</span>
       </div>
-      {error && <p className="text-sm text-red-600">通信エラー：{error}</p>}
+      {error && (
+        <p className="rounded-xl bg-stop-soft px-3 py-2 text-sm font-semibold text-stop" role="alert">
+          通信エラー：{error}
+        </p>
+      )}
 
-      <div className="rounded-2xl border border-zinc-200 bg-white p-5">
-        <p className="text-lg font-semibold leading-relaxed">{reply.text}</p>
+      <div className="card p-5">
+        <p className="text-[19px] font-bold leading-relaxed">{reply.text}</p>
 
         {reply.kind === "steps" && reply.steps.length > 0 && (
           <ol className="mt-4 space-y-3">
             {reply.steps.map((s, i) => (
-              <li key={i} className="flex gap-3 text-base leading-relaxed">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-zinc-900 text-sm font-bold text-white">
+              <li key={i} className="flex gap-3 text-[16px] leading-relaxed">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-ink text-sm font-bold text-white">
                   {i + 1}
                 </span>
                 <span>{s}</span>
@@ -272,66 +290,41 @@ export function Triage({
         )}
 
         {reply.kind === "escalate" && reply.spare_hint && (
-          <p className="mt-3 rounded-xl bg-amber-50 p-3 text-amber-900">{reply.spare_hint}</p>
+          <p className="mt-3 rounded-xl bg-warn-soft p-3 font-semibold text-warn">予備機：{reply.spare_hint}</p>
         )}
       </div>
 
       {reply.kind === "question" && (
         <div className="space-y-2">
           <div className="grid grid-cols-2 gap-3">
-            <button
-              type="button"
-              onClick={() => sendAnswer("はい")}
-              className="rounded-2xl bg-zinc-900 px-4 py-4 text-lg font-semibold text-white"
-            >
+            <button type="button" onClick={() => sendAnswer("はい")} className="btn btn-primary min-h-14 text-lg">
               はい
             </button>
-            <button
-              type="button"
-              onClick={() => sendAnswer("いいえ")}
-              className="rounded-2xl bg-zinc-900 px-4 py-4 text-lg font-semibold text-white"
-            >
+            <button type="button" onClick={() => sendAnswer("いいえ")} className="btn btn-primary min-h-14 text-lg">
               いいえ
             </button>
           </div>
-          <button
-            type="button"
-            onClick={() => sendAnswer("わかりません")}
-            className="w-full rounded-2xl border-2 border-zinc-300 bg-white px-4 py-3 text-base font-semibold text-zinc-700"
-          >
+          <button type="button" onClick={() => sendAnswer("わかりません")} className="btn btn-soft w-full text-base">
             わからない
           </button>
         </div>
       )}
 
-
       {reply.kind === "steps" && (
         <div className="grid grid-cols-2 gap-3">
-          <button
-            type="button"
-            onClick={() => setPhase("cause")}
-            className="rounded-2xl bg-emerald-600 px-4 py-5 text-lg font-semibold text-white"
-          >
+          <button type="button" onClick={() => setPhase("cause")} className="btn btn-go min-h-16 text-xl">
             直った
           </button>
-          <button
-            type="button"
-            onClick={notFixed}
-            className="rounded-2xl border-2 border-zinc-900 px-4 py-5 text-lg font-semibold"
-          >
+          <button type="button" onClick={notFixed} className="btn btn-outline min-h-16 text-xl">
             直らない
           </button>
         </div>
       )}
 
       {reply.kind !== "escalate" && (
-        <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-3 text-sm">
-          {reply.spare_hint && <p className="mb-2 text-zinc-600">{reply.spare_hint}</p>}
-          <button
-            type="button"
-            onClick={giveUp}
-            className="w-full rounded-xl border border-zinc-400 bg-white px-4 py-3 text-base font-semibold"
-          >
+        <div className="rounded-2xl border border-line bg-surface/60 p-3 text-sm">
+          {reply.spare_hint && <p className="mb-2 text-ink-2">予備機：{reply.spare_hint}</p>}
+          <button type="button" onClick={giveUp} className="btn btn-soft w-full text-base">
             急ぐ → 予備機で続けて、ICT担当に知らせる
           </button>
         </div>
@@ -342,21 +335,21 @@ export function Triage({
           <button
             type="button"
             onClick={() => record({ ...escalation(), resolved: "spare" })}
-            className="rounded-2xl bg-zinc-900 px-4 py-5 text-lg font-semibold text-white"
+            className="btn btn-primary min-h-16 text-lg"
           >
             予備機で続ける（ICT担当に知らせる）
           </button>
           <button
             type="button"
             onClick={() => record({ ...escalation(), resolved: "ticket" })}
-            className="rounded-2xl border-2 border-zinc-900 px-4 py-4 text-base font-semibold"
+            className="btn btn-outline min-h-14 text-base"
           >
             ICT担当に来てもらう
           </button>
           <button
             type="button"
             onClick={() => setPhase("cause")}
-            className="rounded-2xl border-2 border-emerald-600 px-4 py-4 text-base font-semibold text-emerald-700"
+            className="btn btn-soft min-h-14 border-go text-base text-go"
           >
             いま直った
           </button>

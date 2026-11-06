@@ -2,6 +2,7 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import QRCode from "qrcode";
 import { loadAll } from "@/lib/store";
+import { Mark } from "@/components/Mark";
 import { PrintButton } from "@/components/PrintButton";
 
 /**
@@ -24,16 +25,16 @@ export default async function QrPage() {
   );
 
   return (
-    <main className="mx-auto w-full max-w-3xl space-y-6 px-4 py-6 print:max-w-none print:space-y-0 print:px-0 print:py-0">
-      <header className="space-y-2 print:hidden">
-        <p className="text-sm text-zinc-500">
-          <Link href="/admin" className="underline">
-            ICT担当
-          </Link>{" "}
-          / 教卓QR
+    <main className="mx-auto w-full max-w-3xl space-y-6 px-4 pb-14 pt-7 print:max-w-none print:space-y-0 print:px-0 print:py-0">
+      <header className="space-y-3 print:hidden">
+        <p className="text-sm text-muted">
+          <Link href="/admin" className="link">
+            ICT担当ダッシュボード
+          </Link>
+          <span aria-hidden="true">　›　</span>教卓QR
         </p>
-        <h1 className="text-2xl font-bold">教卓に貼るQRカード</h1>
-        <p className="text-sm text-zinc-600">
+        <h1 className="text-[28px] font-bold tracking-tight">教卓に貼るQRカード</h1>
+        <p className="text-sm text-ink-2">
           A4で印刷すると1枚に6教室分。切って教卓の見える所に貼ります。QRの先は {origin}/room/… です。
           公開後は本番のアドレスで開き直してから印刷してください。
         </p>
@@ -45,15 +46,20 @@ export default async function QrPage() {
         {cards.map(({ room, url, svg }) => (
           <article
             key={room.id}
-            className="flex flex-col items-center justify-center rounded-2xl border border-zinc-300 bg-white p-4 text-center print:h-[92mm] print:break-inside-avoid print:rounded-none print:border-dashed print:p-3"
+            className="card flex flex-col items-center justify-center p-5 text-center print:h-[92mm] print:break-inside-avoid print:rounded-none print:border-dashed print:p-3 print:shadow-none"
             style={{ printColorAdjust: "exact" }}
           >
-            <p className="text-xs text-zinc-500">{school.name}</p>
-            <h2 className="text-2xl font-bold">{room.name}</h2>
-            <p className="mt-1 text-sm font-semibold">映らない・鳴らないときは、ここを読む</p>
+            <p className="flex items-center gap-1.5 text-xs text-muted">
+              <Mark size={16} />
+              {school.name}
+            </p>
+            <h2 className="mt-1 text-2xl font-bold tracking-tight">{room.name}</h2>
+            <p className="mt-1 text-sm font-bold">映らない・鳴らないときは、ここを読む</p>
             <div className="my-3 w-40" dangerouslySetInnerHTML={{ __html: svg }} />
-            <p className="text-[11px] text-zinc-500">{url}</p>
-            <p className="mt-1 text-[11px] text-zinc-500">症状を1つ押すだけ。直し方が出ます。直らなければ予備機の案内とICT担当への連絡まで。</p>
+            <p className="text-[11px] text-muted">{url}</p>
+            <p className="mt-1 text-[11px] leading-snug text-muted">
+              症状を1つ押すだけ。直し方が出ます。直らなければ予備機の案内とICT担当への連絡まで。
+            </p>
           </article>
         ))}
       </div>

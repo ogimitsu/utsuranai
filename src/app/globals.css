@@ -1,21 +1,126 @@
 @import "tailwindcss";
 
-:root {
-  --background: #fafafa;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family:
-    "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Meiryo", "Noto Sans JP",
+/*
+ * デザイン基盤（ユニバーサルデザイン配慮）
+ * - 文字：UD フォント（BIZ UDPGothic）優先。本文 17px、行間 1.6
+ * - 色：白地に対して本文 14:1、補助文 5:1 以上。意味は色だけで伝えない（文言・形を併用）
+ * - 操作：押せるものは高さ 48px 以上、フォーカスは太い輪郭で見える
+ * - 動き：reduce-motion ではアニメーションを止める
+ */
+@theme {
+  --color-paper: #f6f5f1;
+  --color-surface: #ffffff;
+  --color-ink: #1c1917;
+  --color-ink-2: #44403c;
+  --color-muted: #625d57;
+  --color-line: #e6e3dd;
+  --color-line-strong: #c8c3ba;
+  --color-accent: #0e7490;
+  --color-accent-soft: #e0f2fe;
+  --color-go: #047857;
+  --color-go-soft: #ecfdf5;
+  --color-warn: #92400e;
+  --color-warn-soft: #fef3c7;
+  --color-stop: #b91c1c;
+  --color-stop-soft: #fee2e2;
+  --font-sans:
+    "BIZ UDPGothic", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", Meiryo,
     system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    font-size: 17px;
+  }
+  body {
+    @apply bg-paper font-sans text-ink;
+    line-height: 1.6;
+    font-feature-settings: "palt";
+    -webkit-text-size-adjust: 100%;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+  }
+  input,
+  select,
+  button {
+    font: inherit;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-[1.25rem] border border-line bg-surface;
+    box-shadow:
+      0 1px 2px rgba(28, 25, 23, 0.04),
+      0 10px 28px -20px rgba(28, 25, 23, 0.25);
+  }
+  .btn {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl px-4 py-3 text-center font-bold leading-tight;
+    transition:
+      transform 120ms ease,
+      background-color 120ms ease,
+      border-color 120ms ease;
+  }
+  .btn:active {
+    transform: scale(0.985);
+  }
+  .btn:disabled {
+    @apply cursor-not-allowed opacity-50;
+  }
+  .btn-primary {
+    @apply bg-ink text-white hover:bg-stone-800;
+  }
+  .btn-go {
+    @apply bg-go text-white hover:bg-emerald-800;
+  }
+  .btn-outline {
+    @apply border-2 border-ink bg-surface text-ink hover:bg-stone-50;
+  }
+  .btn-soft {
+    @apply border border-line-strong bg-surface text-ink hover:bg-stone-50;
+  }
+  .btn-sm {
+    @apply min-h-10 rounded-xl px-3 py-2 text-sm;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1 text-sm font-semibold text-ink-2;
+  }
+  .chip-warn {
+    @apply border-transparent bg-warn-soft text-warn;
+  }
+  .chip-go {
+    @apply border-transparent bg-go-soft text-go;
+  }
+  .eyebrow {
+    @apply text-xs font-bold tracking-[0.08em] text-muted;
+  }
+  .h-section {
+    @apply flex items-center gap-2 text-lg font-bold tracking-tight;
+  }
+  .count {
+    @apply inline-flex min-w-7 items-center justify-center rounded-full bg-stone-100 px-2 py-0.5 text-sm font-bold text-ink-2;
+  }
+  .link {
+    @apply font-semibold text-accent underline decoration-2 underline-offset-4 hover:text-cyan-900;
+  }
+  .dot-list > li {
+    @apply relative pl-5;
+  }
+  .dot-list > li::before {
+    content: "";
+    @apply absolute left-0 top-[0.62em] h-2 w-2 rounded-full bg-accent;
+  }
 }
 
 /* 教卓QRカードの印刷（/admin/qr）。A4縦・余白10mm → 印字面 190mm×277mm に 2列×3段 */

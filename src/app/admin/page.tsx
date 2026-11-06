@@ -7,7 +7,7 @@ import { CAUSE_LABEL, DEVICE_KIND_LABEL, type CauseTag } from "@/lib/schema";
 import { loadAll } from "@/lib/store";
 import { getToday } from "@/lib/today";
 
-/** ICT担当ダッシュボード（v0：チケット、数字、寿命、繰り返す教室） */
+/** ICT担当ダッシュボード（チケット、数字、寿命、繰り返す教室） */
 export default async function AdminPage() {
   const today = await getToday();
   const { school, rooms, devices, incidents } = await loadAll();
@@ -27,6 +27,7 @@ export default async function AdminPage() {
   const causeCount = new Map<CauseTag, number>();
   for (const i of upToToday) causeCount.set(i.cause_tag, (causeCount.get(i.cause_tag) ?? 0) + 1);
   const causes = [...causeCount.entries()].sort((a, b) => b[1] - a[1]);
+  const causeMax = causes[0]?.[1] ?? 1;
 
   // 直近60日で繰り返している教室
   const since = new Date(today);
@@ -62,68 +63,81 @@ export default async function AdminPage() {
   );
 
   return (
-    <main className="mx-auto w-full max-w-3xl space-y-8 px-4 py-6">
+    <main className="mx-auto w-full max-w-3xl space-y-9 px-4 pb-14 pt-7">
       <header>
-        <p className="text-sm text-zinc-500">{school.name}</p>
-        <h1 className="text-2xl font-bold">ICT担当ダッシュボード</h1>
+        <p className="eyebrow">{school.name}</p>
+        <h1 className="mt-1 text-[28px] font-bold tracking-tight">ICT担当ダッシュボード</h1>
       </header>
 
-      <section className="grid grid-cols-3 gap-3">
+      <section className="grid grid-cols-3 gap-3" aria-label="今年度の数字">
         <Stat label="今年度の件数" value={upToToday.length} unit="件" />
         <Stat label="先生が自分で解決" value={selfByTeacher.length} unit="件" />
         <Stat label="守られた授業（推定）" value={protectedMinutes} unit="分" />
       </section>
 
-      <section className="space-y-2">
-        <h2 className="text-lg font-semibold">未対応チケット（{tickets.length}）</h2>
+      <section className="space-y-3" aria-labelledby="h-tickets">
+        <h2 id="h-tickets" className="h-section">
+          未対応チケット <span className="count">{tickets.length}</span>
+        </h2>
         <TicketList tickets={tickets} roomNames={roomNames} />
       </section>
 
-      <section className="space-y-2">
-        <h2 className="text-lg font-semibold">確認ポイントの提案（{proposals.length}）</h2>
-        <p className="text-sm text-zinc-500">履歴から見つけた「教室のメモに載せる1行」。承認したものだけが先生に見えます。</p>
+      <section className="space-y-3" aria-labelledby="h-proposals">
+        <h2 id="h-proposals" className="h-section">
+          確認ポイントの提案 <span className="count">{proposals.length}</span>
+        </h2>
+        <p className="text-sm text-ink-2">履歴から見つけた「教室のメモに載せる1行」。承認したものだけが先生に見えます。</p>
         <QuirkProposals items={proposals} hasKey={hasApiKey()} />
       </section>
 
-      <div className="grid gap-3 sm:grid-cols-[2fr_1fr]">
-        <Link
-          href="/admin/docs"
-          className="block rounded-2xl border border-zinc-900 bg-white p-4 hover:bg-zinc-50"
-        >
-          <p className="font-semibold">書類の下書きを作る →</p>
-          <p className="mt-1 text-sm text-zinc-500">引継ぎ文書・備品購入計画・修理依頼文。今年度の記録だけを材料に書きます。</p>
+      <div className="grid gap-3 sm:grid-cols-[3fr_2fr]">
+        <Link href="/admin/docs" className="card flex items-center justify-between gap-3 p-5 hover:border-ink">
+          <span>
+            <span className="block text-lg font-bold">書類の下書きを作る</span>
+            <span className="mt-1 block text-sm text-ink-2">引継ぎ文書・備品購入計画・修理依頼文。今年度の記録だけを材料に。</span>
+          </span>
+          <span aria-hidden="true" className="text-2xl">
+            →
+          </span>
         </Link>
-        <Link href="/admin/qr" className="block rounded-2xl border border-zinc-300 bg-white p-4 hover:bg-zinc-50">
-          <p className="font-semibold">教卓QRを印刷 →</p>
-          <p className="mt-1 text-sm text-zinc-500">全教室ぶんをA4に。</p>
+        <Link href="/admin/qr" className="card flex items-center justify-between gap-3 p-5 hover:border-ink">
+          <span>
+            <span className="block text-lg font-bold">教卓QRを印刷</span>
+            <span className="mt-1 block text-sm text-ink-2">全教室ぶんをA4に。</span>
+          </span>
+          <span aria-hidden="true" className="text-2xl">
+            →
+          </span>
         </Link>
       </div>
 
-      <section className="grid gap-6 sm:grid-cols-2">
-        <div className="space-y-2">
-          <h2 className="text-lg font-semibold">原因の内訳</h2>
-          <ul className="space-y-1 text-sm">
+      <section className="grid gap-4 sm:grid-cols-2">
+        <div className="card space-y-3 p-5">
+          <h2 className="h-section">原因の内訳</h2>
+          <ul className="space-y-2 text-sm">
             {causes.map(([c, n]) => (
-              <li key={c} className="flex items-center gap-2">
-                <span className="w-28 shrink-0">{CAUSE_LABEL[c]}</span>
-                <span className="h-2 rounded bg-zinc-800" style={{ width: `${(n / upToToday.length) * 100}%` }} />
-                <span className="text-zinc-500">{n}</span>
+              <li key={c} className="grid grid-cols-[7rem_1fr_2.5rem] items-center gap-2">
+                <span className="truncate">{CAUSE_LABEL[c]}</span>
+                <span className="h-3 overflow-hidden rounded-full bg-stone-100" aria-hidden="true">
+                  <span className="block h-full rounded-full bg-accent" style={{ width: `${(n / causeMax) * 100}%` }} />
+                </span>
+                <span className="text-right font-bold tabular-nums">{n}</span>
               </li>
             ))}
           </ul>
         </div>
-        <div className="space-y-2">
-          <h2 className="text-lg font-semibold">直近60日で繰り返す教室</h2>
+        <div className="card space-y-3 p-5">
+          <h2 className="h-section">直近60日で繰り返す教室</h2>
           {repeating.length === 0 ? (
-            <p className="text-sm text-zinc-500">なし</p>
+            <p className="text-sm text-muted">なし</p>
           ) : (
-            <ul className="space-y-1 text-sm">
+            <ul className="space-y-2 text-sm">
               {repeating.map(([r, n]) => (
-                <li key={r}>
-                  <Link href={`/room/${r}`} className="underline">
+                <li key={r} className="flex items-center justify-between gap-2">
+                  <Link href={`/room/${r}`} className="link">
                     {roomNames[r] ?? r}
                   </Link>
-                  　{n}件
+                  <span className="count">{n}件</span>
                 </li>
               ))}
             </ul>
@@ -131,33 +145,38 @@ export default async function AdminPage() {
         </div>
       </section>
 
-      <section className="grid gap-6 sm:grid-cols-2">
-        <div className="space-y-2">
-          <h2 className="text-lg font-semibold">ランプ寿命が近い</h2>
+      <section className="grid gap-4 sm:grid-cols-2">
+        <div className="card space-y-3 p-5">
+          <h2 className="h-section">ランプ寿命が近い</h2>
           {lampWarn.length === 0 ? (
-            <p className="text-sm text-zinc-500">なし</p>
+            <p className="text-sm text-muted">なし</p>
           ) : (
-            <ul className="space-y-1 text-sm">
+            <ul className="space-y-2 text-sm">
               {lampWarn.map((d) => (
                 <li key={d.id}>
-                  {d.room_id ? roomNames[d.room_id] : "予備"}　{DEVICE_KIND_LABEL[d.kind]} {d.model}
-                  <span className="text-zinc-500">
-                    　{d.lamp_hours} / {d.lamp_life_hours} 時間
-                  </span>
+                  <p className="font-semibold">
+                    {d.room_id ? roomNames[d.room_id] : "予備"}　{DEVICE_KIND_LABEL[d.kind]} {d.model}
+                  </p>
+                  <p className="tabular-nums text-muted">
+                    {d.lamp_hours} / {d.lamp_life_hours} 時間
+                  </p>
                 </li>
               ))}
             </ul>
           )}
         </div>
-        <div className="space-y-2">
-          <h2 className="text-lg font-semibold">保守期限が90日以内</h2>
+        <div className="card space-y-3 p-5">
+          <h2 className="h-section">保守期限が90日以内</h2>
           {warrantyWarn.length === 0 ? (
-            <p className="text-sm text-zinc-500">なし</p>
+            <p className="text-sm text-muted">なし</p>
           ) : (
-            <ul className="space-y-1 text-sm">
+            <ul className="space-y-2 text-sm">
               {warrantyWarn.map((d) => (
                 <li key={d.id}>
-                  {d.room_id ? roomNames[d.room_id] : "予備"}　{DEVICE_KIND_LABEL[d.kind]} {d.model}　〜{d.warranty_until}
+                  <p className="font-semibold">
+                    {d.room_id ? roomNames[d.room_id] : "予備"}　{DEVICE_KIND_LABEL[d.kind]} {d.model}
+                  </p>
+                  <p className="tabular-nums text-muted">〜{d.warranty_until} まで</p>
                 </li>
               ))}
             </ul>
@@ -165,7 +184,7 @@ export default async function AdminPage() {
         </div>
       </section>
 
-      <p className="text-xs text-zinc-400">
+      <p className="text-xs text-muted">
         「守られた授業」は、先生が自分で直した件数 × {WAIT_MIN}分（ICT担当を待つ推定時間）で計算しています。
       </p>
     </main>
@@ -174,11 +193,11 @@ export default async function AdminPage() {
 
 function Stat({ label, value, unit }: { label: string; value: number; unit: string }) {
   return (
-    <div className="rounded-2xl border border-zinc-200 bg-white p-4">
-      <p className="text-xs text-zinc-500">{label}</p>
-      <p className="text-2xl font-bold">
+    <div className="card p-4">
+      <p className="eyebrow">{label}</p>
+      <p className="mt-1 text-[30px] font-bold leading-none tabular-nums tracking-tight">
         {value}
-        <span className="ml-1 text-sm font-normal text-zinc-500">{unit}</span>
+        <span className="ml-1 text-sm font-semibold text-muted">{unit}</span>
       </p>
     </div>
   );

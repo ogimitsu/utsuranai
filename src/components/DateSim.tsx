@@ -25,22 +25,24 @@ export function DateSim({ today, simulated }: { today: string; simulated: boolea
   };
 
   return (
-    <label className="flex items-center gap-2 text-sm">
-      <span className={simulated ? "font-semibold text-amber-700" : "text-zinc-500"}>
-        今日{simulated ? "（仮）" : ""}
-      </span>
-      <input
-        type="date"
-        value={today}
-        onChange={(e) => set(e.target.value)}
-        disabled={pending}
-        className="rounded-md border border-zinc-300 bg-white px-2 py-1 text-sm"
-      />
+    <div className="flex items-center gap-2 text-sm">
+      <label className="flex items-center gap-2">
+        <span className={simulated ? "font-bold text-warn" : "text-muted"}>今日{simulated ? "（仮）" : ""}</span>
+        <input
+          type="date"
+          value={today}
+          onChange={(e) => set(e.target.value)}
+          disabled={pending}
+          className={`min-h-10 rounded-lg border bg-surface px-2.5 text-sm ${
+            simulated ? "border-warn" : "border-line-strong"
+          }`}
+        />
+      </label>
       {simulated && (
-        <button type="button" onClick={() => set(null)} className="text-xs text-zinc-500 underline">
+        <button type="button" onClick={() => set(null)} className="link text-xs">
           戻す
         </button>
       )}
-    </label>
+    </div>
   );
 }

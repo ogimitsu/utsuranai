@@ -67,11 +67,11 @@ export function PhotoAssist({
   }
 
   return (
-    <div className="rounded-2xl border border-dashed border-zinc-300 bg-white p-4">
+    <div className="rounded-2xl border border-dashed border-line-strong bg-surface p-4">
       {!result && (
         <>
-          <p className="text-sm font-semibold">写真を1枚、見てもらう（任意）</p>
-          <p className="mt-1 text-sm text-zinc-500">ランプかケーブルの根元を。生徒が写らない向きで。保存はされません。</p>
+          <p className="font-bold">写真を1枚、見てもらう（任意）</p>
+          <p className="mt-1 text-sm text-ink-2">ランプかケーブルの根元を。生徒が写らない向きで。保存はされません。</p>
           <label className="mt-3 block">
             <input
               ref={inputRef}
@@ -82,24 +82,24 @@ export function PhotoAssist({
               disabled={busy}
               onChange={(e) => void onPick(e.target.files?.[0])}
             />
-            <span
-              className={`block rounded-xl border-2 border-zinc-900 px-4 py-3 text-center text-base font-semibold ${
-                busy ? "opacity-50" : "active:scale-[0.98]"
-              }`}
-            >
+            <span className={`btn btn-outline w-full text-base ${busy ? "opacity-50" : ""}`} aria-live="polite">
               {busy ? "見ています…" : "写真を撮る／選ぶ"}
             </span>
           </label>
-          {error && <p className="mt-2 text-sm text-red-600">送れませんでした：{error}</p>}
+          {error && (
+            <p className="mt-2 text-sm font-semibold text-stop" role="alert">
+              送れませんでした：{error}
+            </p>
+          )}
         </>
       )}
       {result && (
-        <div className="space-y-2">
-          <p className="text-xs text-zinc-400">写真から{result.source === "ai" ? "（AI）" : ""}</p>
-          <p className="text-[15px] leading-relaxed">{result.observation}</p>
-          <p className="rounded-xl bg-zinc-900 px-3 py-2 text-base font-semibold text-white">→ {result.next_step}</p>
+        <div className="space-y-2" role="status" aria-live="polite">
+          <p className="eyebrow">写真から{result.source === "ai" ? "（AI）" : ""}</p>
+          <p className="text-[16px] leading-relaxed">{result.observation}</p>
+          <p className="rounded-xl bg-ink px-3 py-2.5 text-base font-bold text-white">次の一手：{result.next_step}</p>
           {result.available && result.confidence !== "high" && (
-            <p className="text-xs text-zinc-500">はっきりしない部分があります。試して直らなければ下のボタンへ。</p>
+            <p className="text-xs text-muted">はっきりしない部分があります。試して直らなければ下のボタンへ。</p>
           )}
         </div>
       )}

@@ -2,11 +2,7 @@
 
 export function PrintButton() {
   return (
-    <button
-      type="button"
-      onClick={() => window.print()}
-      className="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-white"
-    >
+    <button type="button" onClick={() => window.print()} className="btn btn-primary btn-sm">
       印刷する
     </button>
   );

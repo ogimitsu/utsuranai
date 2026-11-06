@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
  * 見出し（#〜###）、箇条書き（- / ・ / 1.）、表、段落、**太字** だけ。HTML は解釈しない（安全）。
  */
 export function Markdown({ text }: { text: string }) {
-  return <div className="space-y-3 text-[15px] leading-relaxed">{parse(text)}</div>;
+  return <div className="space-y-3 text-[15.5px] leading-[1.75]">{parse(text)}</div>;
 }
 
 type Row = string[];
@@ -32,15 +32,15 @@ function parse(text: string): ReactNode[] {
       const content = inline(h[2]);
       out.push(
         level === 1 ? (
-          <h1 key={k()} className="text-xl font-bold">
+          <h1 key={k()} className="text-2xl font-bold tracking-tight">
             {content}
           </h1>
         ) : level === 2 ? (
-          <h2 key={k()} className="mt-4 text-lg font-semibold">
+          <h2 key={k()} className="mt-7 border-l-4 border-accent pl-3 text-lg font-bold">
             {content}
           </h2>
         ) : (
-          <h3 key={k()} className="mt-2 font-semibold">
+          <h3 key={k()} className="mt-4 font-bold text-ink-2">
             {content}
           </h3>
         ),
@@ -62,13 +62,13 @@ function parse(text: string): ReactNode[] {
       }
       const [head, ...body] = rows;
       out.push(
-        <div key={k()} className="overflow-x-auto">
+        <div key={k()} className="overflow-x-auto rounded-xl border border-line">
           <table className="w-full border-collapse text-sm">
             {head && (
-              <thead>
+              <thead className="bg-stone-50">
                 <tr>
                   {head.map((c, j) => (
-                    <th key={j} className="border-b border-zinc-300 px-2 py-1 text-left font-semibold">
+                    <th key={j} className="border-b border-line px-3 py-2 text-left font-bold">
                       {inline(c)}
                     </th>
                   ))}
@@ -77,9 +77,9 @@ function parse(text: string): ReactNode[] {
             )}
             <tbody>
               {body.map((r, ri) => (
-                <tr key={ri}>
+                <tr key={ri} className="odd:bg-surface even:bg-stone-50/60">
                   {r.map((c, j) => (
-                    <td key={j} className="border-b border-zinc-100 px-2 py-1 align-top">
+                    <td key={j} className="border-b border-line px-3 py-2 align-top">
                       {inline(c)}
                     </td>
                   ))}
@@ -106,11 +106,11 @@ function parse(text: string): ReactNode[] {
       }
       out.push(
         ordered ? (
-          <ol key={k()} className="list-decimal space-y-1 pl-6">
+          <ol key={k()} className="list-decimal space-y-1.5 pl-6 marker:font-bold marker:text-muted">
             {items}
           </ol>
         ) : (
-          <ul key={k()} className="list-disc space-y-1 pl-6">
+          <ul key={k()} className="list-disc space-y-1.5 pl-6 marker:text-accent">
             {items}
           </ul>
         ),

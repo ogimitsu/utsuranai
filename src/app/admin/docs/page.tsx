@@ -21,18 +21,19 @@ export default async function DocsPage() {
     }));
 
   return (
-    <main className="mx-auto w-full max-w-3xl space-y-6 px-4 py-6">
-      <header className="space-y-1">
-        <p className="text-sm text-zinc-500">
-          <Link href="/admin" className="underline">
+    <main className="mx-auto w-full max-w-3xl space-y-7 px-4 pb-14 pt-7">
+      <header className="space-y-2">
+        <p className="text-sm text-muted">
+          <Link href="/admin" className="link">
             ICT担当ダッシュボード
           </Link>
-          　›　書類
+          <span aria-hidden="true">　›　</span>書類
         </p>
-        <h1 className="text-2xl font-bold">書類の下書き</h1>
-        <p className="text-sm text-zinc-600">
+        <h1 className="text-[28px] font-bold tracking-tight">書類の下書き</h1>
+        <p className="text-sm text-ink-2">
           {facts.school.name}　{facts.school.fiscal_year}年度　{facts.range.from}〜{facts.range.to} の記録{" "}
-          {facts.totals.incidents}件が材料です。ヘッダーの「今日」を年度末に動かすと、1年分の引継ぎになります。
+          <span className="font-bold text-ink">{facts.totals.incidents}件</span>
+          が材料です。ヘッダーの「今日」を年度末に動かすと、1年分の引継ぎになります。
         </p>
       </header>
 
