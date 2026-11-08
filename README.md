@@ -4,7 +4,7 @@
 
 Built with Claude: Japan 2026 提出作品（テーマ1「あなたにしかない深さを。」）
 
-- デモ動画：準備中（3分・日本語。提出時に URL を記入）
+- デモ動画（3分・日本語・YouTube）：https://youtu.be/B1mAeMapDzo
 - 公開URL：準備中（公開手順と公開前チェックは `docs/DEPLOY.md`）
 - 3分で見るなら：`docs/DEMO.md` の台本と、下の画面写真
 
