@@ -50,7 +50,7 @@
 | 0 | README を整える | アプリ名・概要・課題・機能・技術・手順・動画欄あり。動作環境と `.env.example` の説明、LICENSE ファイルを 11/8 に追加 | 動画 URL と公開 URL を提出時に記入 |
 | 1 | 公開ファイルに API キー等が無い | 追跡ファイルに `sk-ant-`・`ANTHROPIC_API_KEY=値` なし。`.env*` は .gitignore 済み、`.env.local` は未追跡。`.env.example` は値が空。`process.env` の参照は `src/lib/llm/client.ts` の1か所（サーバー側）だけ。`NEXT_PUBLIC_` なし | — |
 | 2 | Git 履歴にも無い | 全コミット（26）の差分を `sk-ant-`・AWS・GitHub トークン・秘密鍵の形で検索し 0 件。`.env` 系ファイルが追加された履歴なし | — |
-| 3 | GitHub の設定 | API で `visibility: public`、既定ブランチ `main` を確認 | **先生が Settings で確認**：Collaborators が自分だけ／Advanced Security の secret scanning と push protection を ON／Topics（任意） |
+| 3 | GitHub の設定 | API で `visibility: public`、既定ブランチ `main` を確認 | 11/8 15:20 先生が Settings → Advanced Security で確認：Secret Protection 有効・Push protection On（スクショ確認済み）。Topics は任意で未設定 |
 | 4 | 仕様・コードの点検 | 11/8 にサブエージェントで API ルート・store・LLM 入口を点検（結果は BUILD_LOG 11/8） | Claude Security プラグインは先生が `/plugin install claude-security@claude-plugins-official` → `/claude-security` で実行できる（使用量に計上）。必須ではない |
 | 5 | 動かして確認 | ローカル :3210 で全画面を 11/6 に確認。ブラウザに届くのは手順・記録・文書の文面だけ（API キーは返さない） | 公開後に本番 URL で同じ順に確認（上の「手順」5〜6） |
 | 動画 | 提出動画を見返す | 画面はすべて架空校のダミーデータ。API キー・実在の人物名・連絡先は映らない。エラー画面なし | — |
