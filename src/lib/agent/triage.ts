@@ -12,7 +12,7 @@ import { CauseTag, Symptom, SYMPTOM_LABEL, DEVICE_KIND_LABEL } from "@/lib/schem
 
 export const ChatMessage = z.object({
   role: z.enum(["user", "assistant"]),
-  text: z.string(),
+  text: z.string().max(500),
 });
 export type ChatMessage = z.infer<typeof ChatMessage>;
 

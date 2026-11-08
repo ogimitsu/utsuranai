@@ -1,12 +1,13 @@
 import { z } from "zod";
+import { IdString, rateLimit } from "@/lib/api-guard";
 import { CauseTag, Symptom } from "@/lib/schema";
-import { appendIncident, newIncidentId, updateIncident } from "@/lib/store";
+import { appendIncident, getRoomContext, newIncidentId, updateIncident } from "@/lib/store";
 import { getToday, nowOn } from "@/lib/today";
 
 /** 1タップ記録。先生が「直った」「直らない」を押したときに呼ばれる */
 const CreateBody = z.object({
-  roomId: z.string(),
-  deviceId: z.string().nullable().default(null),
+  roomId: IdString,
+  deviceId: IdString.nullable().default(null),
   symptom: Symptom,
   cause_tag: CauseTag.default("unknown"),
   resolved: z.enum(["self", "spare", "ticket"]),
@@ -16,12 +17,21 @@ const CreateBody = z.object({
 });
 
 export async function POST(request: Request) {
+  const limited = rateLimit(request, "incidents", 20);
+  if (limited) return limited;
   const parsed = CreateBody.safeParse(await request.json().catch(() => null));
   if (!parsed.success) {
     return Response.json({ error: "invalid body", issues: parsed.error.issues }, { status: 400 });
   }
   const b = parsed.data;
-  const datetime = nowOn(await getToday());
+  const today = await getToday();
+  // 実在する教室・機器にだけ記録を残す
+  const ctx = await getRoomContext(b.roomId, today);
+  if (!ctx) return Response.json({ error: "room not found" }, { status: 404 });
+  if (b.deviceId && !ctx.devices.some((d) => d.id === b.deviceId)) {
+    return Response.json({ error: "device not in room" }, { status: 404 });
+  }
+  const datetime = nowOn(today);
   const incident = await appendIncident({
     id: newIncidentId(datetime),
     datetime,
@@ -41,13 +51,15 @@ export async function POST(request: Request) {
 
 /** ICT担当がチケットを閉じる／原因を直す */
 const PatchBody = z.object({
-  id: z.string(),
+  id: IdString,
   ticket_status: z.enum(["none", "open", "done"]).optional(),
   cause_tag: CauseTag.optional(),
   note: z.string().max(300).optional(),
 });
 
 export async function PATCH(request: Request) {
+  const limited = rateLimit(request, "incidents", 20);
+  if (limited) return limited;
   const parsed = PatchBody.safeParse(await request.json().catch(() => null));
   if (!parsed.success) {
     return Response.json({ error: "invalid body", issues: parsed.error.issues }, { status: 400 });

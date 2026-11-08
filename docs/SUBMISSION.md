@@ -99,6 +99,8 @@ Built with Claude: Japan 2026 提出作品（テーマ1「あなたにしかな�
 - [ ] リポジトリが Public、README のデモ動画・公開URLの欄を埋めた
 - [ ] `data/incidents.json` `data/devices.json` にテスト記録が残っていない（`git status` が clean）
 - [ ] 文中に実在の学校名・人名・連絡先が無い（チーム名・メンバーはフォームの仕様上の表示）
+- [ ] 動画を見返す（11/7 セッションの最終確認）：有効な API キーが映っていない／他人の実データが無い／エラー画面に機密が無い
+- [ ] GitHub の Settings：Collaborators が自分だけ、Advanced Security の secret scanning と push protection が ON（`docs/DEPLOY.md` 公開前チェック #3）
 - [ ] 提出後に「View Submission」でステータスを確認する。締切直前は混むので 11/8 昼までに
 
 ## 参考（過去回のギャラリーの形）

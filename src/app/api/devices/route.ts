@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { IdString, rateLimit } from "@/lib/api-guard";
 import { loadData, updateDevice } from "@/lib/store";
 
 /**
@@ -7,12 +8,14 @@ import { loadData, updateDevice } from "@/lib/store";
  * reject : suggested_quirks → rejected_quirks（再提案しない）
  */
 const Body = z.object({
-  id: z.string(),
-  approve: z.string().optional(),
-  reject: z.string().optional(),
+  id: IdString,
+  approve: z.string().max(120).optional(),
+  reject: z.string().max(120).optional(),
 });
 
 export async function PATCH(request: Request) {
+  const limited = rateLimit(request, "devices", 30);
+  if (limited) return limited;
   const parsed = Body.safeParse(await request.json().catch(() => null));
   if (!parsed.success) {
     return Response.json({ error: "invalid body", issues: parsed.error.issues }, { status: 400 });

@@ -4,8 +4,8 @@
 
 Built with Claude: Japan 2026 提出作品（テーマ1「あなたにしかない深さを。」）
 
-- デモ動画：提出時に追記
-- 公開URL：提出時に追記（公開手順は `docs/DEPLOY.md`）
+- デモ動画：準備中（3分・日本語。提出時に URL を記入）
+- 公開URL：準備中（公開手順と公開前チェックは `docs/DEPLOY.md`）
 - 3分で見るなら：`docs/DEMO.md` の台本と、下の画面写真
 
 ---
@@ -53,11 +53,17 @@ Built with Claude: Japan 2026 提出作品（テーマ1「あなたにしかな�
 
 ## 動かし方
 
+確認した環境：Node.js 24、Windows 11（Next.js 16 / TypeScript / Tailwind v4 / zod / Anthropic SDK）。
+
 ```bash
 npm install
 cp .env.example .env.local   # ANTHROPIC_API_KEY を入れる（空でも動く：手順集モード）
-npm run dev
+npm run dev                  # http://localhost:3000
 ```
+
+- `.env.example` は項目名だけで値は空。実際のキーは `.env.local` にだけ置く（`.env*` は git 管理外）
+- API キーはサーバー側（`src/lib/llm/client.ts`）でしか読まず、ブラウザには届かない
+- 校内の LAN で使う前提で、ログインは無い。公開 URL で動かすときは `docs/DEPLOY.md` の「公開前チェック」を通す（API ルートは IP ごとの回数制限つき）
 
 - `/` 教室一覧（本番では教卓のQRから `/room/<id>` へ直接）
 - `/admin` ICT担当ダッシュボード（`/admin/docs` 書類、`/admin/qr` 教卓QR）
@@ -100,4 +106,4 @@ scripts/           データ検証、フック
 
 ## ライセンス
 
-MIT
+MIT（`LICENSE`）
