@@ -44,3 +44,6 @@ next-env.d.ts
 /video/frames/
 /video/build/
 /video/out/
+
+.vercel
+.env*

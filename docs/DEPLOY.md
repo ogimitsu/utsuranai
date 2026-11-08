@@ -1,6 +1,8 @@
 # 公開手順（Vercel）
 
-11/7 の「安全なデプロイ」セッションを見てから実行する。それまでは準備だけ。
+**公開済み（11/8 14:55）**：https://utsuranai.vercel.app（案 A＝APIキーなし。先生の決定「公開してよい。キーは載せない」）。Vercel CLI でデプロイ（`npx vercel login` → `npx vercel link --yes --project utsuranai` → `npx vercel --prod --yes`）。GitHub 連携は Vercel 側の Login Connection が無く未設定なので、更新は同じ `npx vercel --prod --yes` を手で実行する。注意：`vercel link` は `.env.local` に `VERCEL_OIDC_TOKEN` 行を追記する（API キーの行はそのまま）。`.vercelignore` で `.env*`・`video/`・`.next/` を除外。
+
+以下は 11/7 の「安全なデプロイ」セッション前に書いた手順。
 
 ## 先に決めること
 

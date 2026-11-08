@@ -5,7 +5,7 @@
 Built with Claude: Japan 2026 提出作品（テーマ1「あなたにしかない深さを。」）
 
 - デモ動画（3分・日本語・YouTube）：https://youtu.be/B1mAeMapDzo
-- 公開URL：準備中（公開手順と公開前チェックは `docs/DEPLOY.md`）
+- 公開URL（審査用・ログイン不要・APIキーなしの手順集モード）：https://utsuranai.vercel.app — 先生の画面 https://utsuranai.vercel.app/room/r-e2 ／ ICT担当 https://utsuranai.vercel.app/admin ／ 書類 https://utsuranai.vercel.app/admin/docs。記録はサーバーの一時メモリに入るだけで、しばらくすると初期状態に戻ります（公開手順は `docs/DEPLOY.md`）
 - 3分で見るなら：`docs/DEMO.md` の台本と、下の画面写真
 
 ---
